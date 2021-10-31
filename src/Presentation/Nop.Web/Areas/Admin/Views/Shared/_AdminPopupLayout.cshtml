@@ -1,0 +1,46 @@
+﻿@using System.Globalization
+@inject IEventPublisher eventPublisher
+@using Nop.Web.Framework.UI;
+@{
+    var currentCulture = CultureInfo.CurrentCulture;
+
+    var dir = currentCulture.TextInfo.IsRightToLeft ? "rtl" : "ltr";
+    var twoLetter = currentCulture.TwoLetterISOLanguageName;
+
+    //page title
+    string adminPageTitle = !string.IsNullOrWhiteSpace(ViewBag.PageTitle) ? ViewBag.PageTitle + " / " : "";
+    adminPageTitle += T("Admin.PageTitle").Text;
+
+    //event
+    await eventPublisher.PublishAsync(new PageRenderingEvent(this.Html));
+}
+<!DOCTYPE html>
+<html lang="@twoLetter" dir="@dir">
+<head>
+    <title>@adminPageTitle</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    @Html.NopHeadCustom()
+
+    @* CSS & Script resources *@
+    @await Html.PartialAsync("_AdminScripts", currentCulture)
+
+    
+</head>
+<body class="hold-transition skin-blue sidebar-collapse layout-fixed">
+    <div class="wrapper">
+        <div class="content-wrapper">
+            @await Html.PartialAsync("~/Areas/Admin/Views/Shared/Notifications.cshtml")
+            <div>
+                <nop-antiforgery-token />
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            //enable tooltips
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+</body>
+</html>
