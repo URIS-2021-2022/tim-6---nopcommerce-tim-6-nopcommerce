@@ -8,6 +8,8 @@ namespace ClearPluginAssemblies
     {
         protected const string FILES_TO_DELETE = "dotnet-bundle.exe;Nop.Web.pdb;Nop.Web.exe;Nop.Web.exe.config";
 
+        //komentar
+
         protected static void Clear(string paths, IList<string> fileNames, bool saveLocalesFolders)
         {
             foreach (var pluginPath in paths.Split(';'))
