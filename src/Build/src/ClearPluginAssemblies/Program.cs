@@ -14,6 +14,7 @@ namespace ClearPluginAssemblies
             {
                 try
                 {
+                    //kom
                     var pluginDirectoryInfo = new DirectoryInfo(pluginPath);
                     var allDirectoryInfo = new List<DirectoryInfo> { pluginDirectoryInfo };
 
