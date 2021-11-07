@@ -200,15 +200,15 @@ namespace Nop.Core.Caching
         /// <param name="expirationTime">The time after which the lock will automatically be expired</param>
         /// <param name="action">Action to be performed with locking</param>
         /// <returns>True if lock was acquired and action was performed; otherwise false</returns>
-        public bool PerformActionWithLock(string key, TimeSpan expirationTime, Action action)
+        public bool PerformActionWithLock(string resource, TimeSpan expirationTime, Action action)
         {
             //ensure that lock is acquired
-            if (_memoryCache.TryGetValue(key, out _))
+            if (_memoryCache.TryGetValue(resource, out _))
                 return false;
 
             try
             {
-                _memoryCache.Set(key, key, expirationTime);
+                _memoryCache.Set(resource, resource, expirationTime);
 
                 //perform action
                 action();
@@ -218,7 +218,7 @@ namespace Nop.Core.Caching
             finally
             {
                 //release lock even if action fails
-                _memoryCache.Remove(key);
+                _memoryCache.Remove(resource);
             }
         }
 
