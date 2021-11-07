@@ -16,7 +16,7 @@ namespace Nop.Core.Caching
     /// <summary>
     /// Represents a distributed cache 
     /// </summary>
-    public partial class DistributedCacheManager: CacheKeyService, ILocker, IStaticCacheManager
+    public sealed partial class DistributedCacheManager: CacheKeyService, ILocker, IStaticCacheManager
     {
         #region Fields
 
