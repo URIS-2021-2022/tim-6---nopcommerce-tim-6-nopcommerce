@@ -12,7 +12,7 @@ namespace Nop.Core
     /// <summary>
     /// Represents a common helper
     /// </summary>
-    public partial class CommonHelper
+    public static partial class CommonHelper
     {
         #region Fields
 
