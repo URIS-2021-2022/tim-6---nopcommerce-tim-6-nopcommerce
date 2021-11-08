@@ -1022,12 +1022,10 @@ namespace Nop.Services.Orders
             var giftCards = await _giftCardService.GetAllGiftCardsAsync(order.Id, isGiftCardActivated: !activate);
             foreach (var gc in giftCards)
             {
-                if (activate)
+                if (activate && gc.GiftCardType == GiftCardType.Virtual)
                 {
                     //activate
                     var isRecipientNotified = gc.IsRecipientNotified;
-                    if (gc.GiftCardType == GiftCardType.Virtual)
-                    {
                         //send email for virtual gift card
                         if (!string.IsNullOrEmpty(gc.RecipientEmail) &&
                             !string.IsNullOrEmpty(gc.SenderEmail))
@@ -1040,7 +1038,7 @@ namespace Nop.Services.Orders
                             if (queuedEmailIds.Any())
                                 isRecipientNotified = true;
                         }
-                    }
+                    
 
                     gc.IsGiftCardActivated = true;
                     gc.IsRecipientNotified = isRecipientNotified;
