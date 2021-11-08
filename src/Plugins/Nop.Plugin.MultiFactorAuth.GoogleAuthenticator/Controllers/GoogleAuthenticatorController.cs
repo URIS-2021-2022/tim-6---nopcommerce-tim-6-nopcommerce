@@ -127,6 +127,10 @@ namespace Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.Controllers
             return Json(model);
         }
 
+
+
+
+
         [HttpPost]
         public async Task<IActionResult> GoogleAuthenticatorDelete (GoogleAuthenticatorModel model)
         {
@@ -135,6 +139,25 @@ namespace Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.Controllers
 
             //delete configuration
             var configuration = await _googleAuthenticatorService.GetConfigurationByIdAsync(model.Id);
+
+            public sealed class ValidatedNotNullAttribute : Attribute { }
+
+            public static class Guard
+                {
+                    public static void NotNull<T>([ValidatedNotNull] this T configuration, string name) where T : class
+                    {
+                        if (configuration == null)
+                            throw new ArgumentNullException(name);
+                    }
+                }
+
+
+            Guard.NotNull(configuration, nameof(configuration));
+            if (configuration == null)
+            {
+                return configuration.ToString(); // Compliant, this code is not reachable
+            }
+
             if (configuration != null)
             {
                 await _googleAuthenticatorService.DeleteConfigurationAsync(configuration);
