@@ -6,7 +6,7 @@ namespace Nop.Core
     /// <summary>
     ///  Represents the class implementation of cryptographic random number generator derive
     /// </summary>
-    public partial class SecureRandomNumberGenerator : RandomNumberGenerator
+    public partial class SecureRandomNumberGenerator : RandomNumberGenerator, IDisposable
     {
         #region Field
 
@@ -68,7 +68,7 @@ namespace Nop.Core
         /// <summary>
         /// Dispose secure random
         /// </summary>
-        public new void Dispose()
+        public new void Dispose() 
         {
             Dispose(true);
             GC.SuppressFinalize(this);
