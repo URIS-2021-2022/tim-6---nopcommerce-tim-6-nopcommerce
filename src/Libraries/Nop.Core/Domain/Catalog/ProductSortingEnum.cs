@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents the product sorting
     /// </summary>
-    public enum ProductSorting
+    public enum ProductSortingEnum
     {
         /// <summary>
         /// Position (display order)
