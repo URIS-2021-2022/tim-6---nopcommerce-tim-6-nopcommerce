@@ -248,7 +248,7 @@ namespace Nop.Core.Caching
             _clearToken.Cancel();
             _clearToken.Dispose();
 
-            _clearToken = new CancellationTokenSource();
+          
 
             foreach (var prefix in _prefixes.Keys.ToList())
             {

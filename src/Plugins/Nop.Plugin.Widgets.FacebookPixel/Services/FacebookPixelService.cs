@@ -453,7 +453,7 @@ namespace Nop.Plugin.Widgets.FacebookPixel.Services
         /// A task that represents the asynchronous operation
         /// The task result contains the script code
         /// </returns>
-        private async Task<string> FormatScriptAsync(IList<FacebookPixelConfiguration> configurations, Func<FacebookPixelConfiguration, Task<string>> getScript)
+        private static async Task<string> FormatScriptAsync(IList<FacebookPixelConfiguration> configurations, Func<FacebookPixelConfiguration, Task<string>> getScript)
         {
             if (!configurations.Any())
                 return string.Empty;
