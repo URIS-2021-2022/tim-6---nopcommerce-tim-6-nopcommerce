@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Nop.Core;
@@ -140,23 +141,9 @@ namespace Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.Controllers
             //delete configuration
             var configuration = await _googleAuthenticatorService.GetConfigurationByIdAsync(model.Id);
 
-            public sealed class ValidatedNotNullAttribute : Attribute { }
-
-            public static class Guard
-                {
-                    public static void NotNull<T>([ValidatedNotNull] this T configuration, string name) where T : class
-                    {
-                        if (configuration == null)
-                            throw new ArgumentNullException(name);
-                    }
-                }
-
 
             Guard.NotNull(configuration, nameof(configuration));
-            if (configuration == null)
-            {
-                return configuration.ToString(); // Compliant, this code is not reachable
-            }
+
 
             if (configuration != null)
             {
@@ -173,4 +160,18 @@ namespace Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.Controllers
 
         #endregion
     }
+
+    public sealed class ValidatedNotNullAttribute : Attribute { }
+
+    public static class Guard
+    {
+        public static void NotNull<T>([ValidatedNotNull] this T value, string name) where T : class
+        {
+            if (value == null)
+                throw new ArgumentNullException(name);
+        }
+    }
+
+
+
 }
