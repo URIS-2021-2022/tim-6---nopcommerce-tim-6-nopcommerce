@@ -13,11 +13,11 @@
         /// <summary>
         /// Gets a plugin system name
         /// </summary>
-        public static string SystemName = "ExternalAuth.Facebook";
+        public static readonly string SystemName = "ExternalAuth.Facebook";
 
         /// <summary>
         /// Gets a name of error callback method
         /// </summary>
-        public static string ErrorCallback = "ErrorCallback";
+        public static readonly string ErrorCallback = "ErrorCallback";
     }
 }
