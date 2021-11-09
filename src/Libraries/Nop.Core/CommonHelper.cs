@@ -315,7 +315,10 @@ namespace Nop.Core
             {
                 date = new DateTime(year.Value, month.Value, day.Value, CultureInfo.CurrentCulture.Calendar);
             }
-            catch { }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc);
+            }
             return date;
         }
 
