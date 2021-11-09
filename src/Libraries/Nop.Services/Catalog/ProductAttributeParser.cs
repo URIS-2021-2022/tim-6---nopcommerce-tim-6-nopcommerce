@@ -667,8 +667,6 @@ namespace Nop.Services.Catalog
                             var hasValue = false;
                             foreach (var str2 in values2Str)
                             {
-                                //case insensitive? 
-                                //if (str1.Trim().ToLower() == str2.Trim().ToLower())
                                 if (str1.Item1.Trim() != str2.Item1.Trim())
                                     continue;
 
