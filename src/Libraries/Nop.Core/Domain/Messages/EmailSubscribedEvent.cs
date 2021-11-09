@@ -5,7 +5,7 @@ namespace Nop.Core.Domain.Messages
     /// <summary>
     /// Email subscribed event
     /// </summary>
-    public class EmailSubscribedEvent : IEquatable<EmailSubscribedEvent>
+    public sealed class EmailSubscribedEvent : IEquatable<EmailSubscribedEvent>
     {
         /// <summary>
         /// Ctor
