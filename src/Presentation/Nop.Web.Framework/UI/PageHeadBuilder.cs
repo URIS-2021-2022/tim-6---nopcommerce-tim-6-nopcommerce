@@ -842,7 +842,7 @@ namespace Nop.Web.Framework.UI
             /// </summary>
             /// <param name="item">Other item</param>
             /// <returns>Result</returns>
-            public bool Equals(ScriptReferenceMeta item)
+            public override bool Equals(ScriptReferenceMeta item)
             {
                 if (item == null)
                     return false;
