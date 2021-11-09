@@ -1840,7 +1840,7 @@ namespace Nop.Services.Catalog
         /// A task that represents the asynchronous operation
         /// The task result contains the related products
         /// </returns>
-        public virtual async Task<IList<RelatedProduct>> GetRelatedProductsByProductId1Async(int productId, bool showHidden = false)
+        public virtual async Task<IList<RelatedProduct>> GetRelatedProductsByProductId1Async(int productId1, bool showHidden = false)
         {
             var query = from rp in _relatedProductRepository.Table
                         join p in _productRepository.Table on rp.ProductId2 equals p.Id
