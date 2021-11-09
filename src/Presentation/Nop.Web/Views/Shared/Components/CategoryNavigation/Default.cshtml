@@ -30,7 +30,7 @@
             liClass += " last";
         }
 
-        <li class="@liClass">
+       <ul> <li class="@liClass"> </ul>
             <a href="@Url.RouteUrl("Category", new { SeName = lineModel.Category.SeName })">@lineModel.Category.Name
                 @if (lineModel.Category.NumberOfProducts.HasValue)
                 {
