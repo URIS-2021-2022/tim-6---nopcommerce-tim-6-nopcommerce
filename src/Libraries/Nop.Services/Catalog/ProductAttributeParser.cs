@@ -667,8 +667,6 @@ namespace Nop.Services.Catalog
                             var hasValue = false;
                             foreach (var str2 in values2Str)
                             {
-                                //case insensitive? 
-                                //if (str1.Trim().ToLower() == str2.Trim().ToLower())
                                 if (str1.Item1.Trim() != str2.Item1.Trim())
                                     continue;
 
@@ -896,15 +894,12 @@ namespace Nop.Services.Catalog
 
             var customerEnteredPriceConverted = decimal.Zero;
             if (product.CustomerEntersPrice)
-                foreach (var formKey in form.Keys)
+                foreach (var formKey in form.Keys.Where(formKey => formKey.Equals($"addtocart_{product.Id}.CustomerEnteredPrice", StringComparison.InvariantCultureIgnoreCase)))
                 {
-                    if (formKey.Equals($"addtocart_{product.Id}.CustomerEnteredPrice", StringComparison.InvariantCultureIgnoreCase))
-                    {
                         if (decimal.TryParse(form[formKey], out var customerEnteredPrice))
                             customerEnteredPriceConverted = await _currencyService.ConvertToPrimaryStoreCurrencyAsync(customerEnteredPrice, await _workContext.GetWorkingCurrencyAsync());
                         break;
                     }
-                }
 
             return customerEnteredPriceConverted;
         }
