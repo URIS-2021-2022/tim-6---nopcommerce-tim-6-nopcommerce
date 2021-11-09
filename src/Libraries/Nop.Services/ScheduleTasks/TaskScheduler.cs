@@ -138,6 +138,9 @@ namespace Nop.Services.ScheduleTasks
             internal static IHttpClientFactory HttpClientFactory { get; set; }
             internal static IServiceScopeFactory ServiceScopeFactory { get; set; }
 
+            private readonly object lockObj = new object();
+    
+
             #endregion
 
             #region Ctor
@@ -240,7 +243,7 @@ namespace Nop.Services.ScheduleTasks
                     return;
 
                 if (disposing)
-                    lock (this)
+                    lock (lockObj)
                         _timer?.Dispose();
 
                 _disposed = true;

@@ -32,7 +32,7 @@ namespace Nop.Services.Security
         private byte[] EncryptTextToMemory(string data, byte[] key, byte[] iv)
         {
             using var ms = new MemoryStream();
-            using (var cs = new CryptoStream(ms, new TripleDESCryptoServiceProvider().CreateEncryptor(key, iv), CryptoStreamMode.Write))
+            using (var cs = new CryptoStream(ms, new AesCryptoServiceProvider().CreateEncryptor(key, iv), CryptoStreamMode.Write))
             {
                 var toEncrypt = Encoding.Unicode.GetBytes(data);
                 cs.Write(toEncrypt, 0, toEncrypt.Length);
@@ -96,7 +96,7 @@ namespace Nop.Services.Security
             if (string.IsNullOrEmpty(encryptionPrivateKey))
                 encryptionPrivateKey = _securitySettings.EncryptionKey;
 
-            using var provider = new TripleDESCryptoServiceProvider
+            using var provider = new AesCryptoServiceProvider
             {
                 Key = Encoding.ASCII.GetBytes(encryptionPrivateKey[0..16]),
                 IV = Encoding.ASCII.GetBytes(encryptionPrivateKey[8..16])
@@ -120,7 +120,7 @@ namespace Nop.Services.Security
             if (string.IsNullOrEmpty(encryptionPrivateKey))
                 encryptionPrivateKey = _securitySettings.EncryptionKey;
 
-            using var provider = new TripleDESCryptoServiceProvider
+            using var provider = new AesCryptoServiceProvider
             {
                 Key = Encoding.ASCII.GetBytes(encryptionPrivateKey[0..16]),
                 IV = Encoding.ASCII.GetBytes(encryptionPrivateKey[8..16])
