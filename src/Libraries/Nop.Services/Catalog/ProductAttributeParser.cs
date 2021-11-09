@@ -896,15 +896,12 @@ namespace Nop.Services.Catalog
 
             var customerEnteredPriceConverted = decimal.Zero;
             if (product.CustomerEntersPrice)
-                foreach (var formKey in form.Keys)
+                foreach (var formKey in form.Keys.Where(formKey => formKey.Equals($"addtocart_{product.Id}.CustomerEnteredPrice", StringComparison.InvariantCultureIgnoreCase)))
                 {
-                    if (formKey.Equals($"addtocart_{product.Id}.CustomerEnteredPrice", StringComparison.InvariantCultureIgnoreCase))
-                    {
                         if (decimal.TryParse(form[formKey], out var customerEnteredPrice))
                             customerEnteredPriceConverted = await _currencyService.ConvertToPrimaryStoreCurrencyAsync(customerEnteredPrice, await _workContext.GetWorkingCurrencyAsync());
                         break;
                     }
-                }
 
             return customerEnteredPriceConverted;
         }
