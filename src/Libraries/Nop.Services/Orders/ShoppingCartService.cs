@@ -876,11 +876,10 @@ namespace Nop.Services.Orders
                 var productAttribute = await _productAttributeService.GetProductAttributeByIdAsync(pam.ProductAttributeId);
 
                 //minimum length
-                if (pam.ValidationMinLength.HasValue)
+                if (pam.ValidationMinLength.HasValue && (pam.AttributeControlType == AttributeControlType.TextBox ||
+                        pam.AttributeControlType == AttributeControlType.MultilineTextbox))
                 {
-                    if (pam.AttributeControlType == AttributeControlType.TextBox ||
-                        pam.AttributeControlType == AttributeControlType.MultilineTextbox)
-                    {
+                    
                         enteredText = _productAttributeParser.ParseValues(attributesXml, pam.Id).FirstOrDefault();
                         enteredTextLength = string.IsNullOrEmpty(enteredText) ? 0 : enteredText.Length;
 
@@ -888,7 +887,7 @@ namespace Nop.Services.Orders
                         {
                             warnings.Add(string.Format(await _localizationService.GetResourceAsync("ShoppingCart.TextboxMinimumLength"), await _localizationService.GetLocalizedAsync(productAttribute, a => a.Name), pam.ValidationMinLength.Value));
                         }
-                    }
+                    
                 }
 
                 //maximum length
