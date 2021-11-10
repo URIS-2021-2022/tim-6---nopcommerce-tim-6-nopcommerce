@@ -681,7 +681,7 @@ namespace Nop.Services.Customers
             bool clearPaymentMethod = true)
         {
             if (customer == null)
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(customer), "Error! Argument null!");
 
             //clear entered coupon codes
             if (clearCouponCodes)
