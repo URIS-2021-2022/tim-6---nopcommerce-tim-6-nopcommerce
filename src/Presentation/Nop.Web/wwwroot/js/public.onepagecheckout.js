@@ -569,8 +569,6 @@ var ConfirmOrder = {
             if (!$('#termsofservice').is(':checked')) {
                 $("#terms-of-service-warning-box").dialog();
                 termOfServiceOk = false;
-            } else {
-                termOfServiceOk = true;
             }
         }
         if (termOfServiceOk) {
