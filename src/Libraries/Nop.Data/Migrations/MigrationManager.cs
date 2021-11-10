@@ -69,7 +69,6 @@ namespace Nop.Data.Migrations
             return migrations
                 .Select(m => _migrationRunnerConventions.GetMigrationInfoForMigration(m))
                 //.OrderBy(m => m.Migration.GetType().GetCustomAttribute<NopMigrationAttribute>().MigrationTarget)
-                //.ThenBy(migration => migration.Version);
                 .OrderBy(migration => migration.Version);
         }
 
