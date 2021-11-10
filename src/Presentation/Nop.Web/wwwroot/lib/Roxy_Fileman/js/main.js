@@ -44,7 +44,7 @@ function selectDir(item){
   }
 }
 function startDragDir(){
-
+  //New code should be implemented here
 }
 function startDragFile(){
   selectFile(this);
