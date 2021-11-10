@@ -288,7 +288,7 @@ RoxyUtils.FormatFileSize = function(x){
     x = x / 1024;
     suffix = 'MB';
   }
-  x = new Number(x);
+  x = Number(x);
   return x.toFixed(2) + ' ' + suffix;
 };
 RoxyUtils.AddParam = function(url, n, v){
