@@ -42,15 +42,18 @@ var Accordion = {
             $(document).trigger({ type: "accordion_section_opened", previousSectionId: previousSectionId, currentSectionId: this.currentSectionId });
             
             if (this.disallowAccessToNextSections) {
-                var pastCurrentSection = false;
-                for (var i = 0; i < this.sections.length; i++) {
-                    if (pastCurrentSection) {
-                        $(this.sections[i]).removeClass('allow');
-                    }
-                    if ($(this.sections[i]).attr('id') == section.attr('id')) {
-                        pastCurrentSection = true;
-                    }
+              var pastCurrentSection = false;
+
+              for (let value of this.section) {
+                if (pastCurrentSection) {
+                  $(value).removeClass('allow');
                 }
+                if ($(value).attr('id') == section.attr('id')) {
+                  pastCurrentSection = true;
+                }
+
+              }
+
             }
         }
     },
