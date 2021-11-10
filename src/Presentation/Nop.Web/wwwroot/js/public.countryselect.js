@@ -50,4 +50,4 @@
             $(this).change(countrySelectHandler);
         });
     }
-}(jQuery); 
+}(jQuery)
