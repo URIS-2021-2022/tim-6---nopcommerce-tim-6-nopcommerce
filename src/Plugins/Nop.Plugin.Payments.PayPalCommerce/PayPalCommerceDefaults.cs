@@ -118,7 +118,7 @@ namespace Nop.Plugin.Payments.PayPalCommerce
             /// <summary>
             /// Gets a period (in seconds) before the onboarding request times out
             /// </summary>
-            public static int RequestTimeout => 20;
+            public static int RequestTimeoutBeforeOnboarding => 20;
         }
 
         #endregion
