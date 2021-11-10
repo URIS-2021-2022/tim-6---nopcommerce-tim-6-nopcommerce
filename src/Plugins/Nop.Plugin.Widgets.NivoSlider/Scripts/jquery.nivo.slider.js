@@ -30,23 +30,23 @@
         // Find our slider children
         var kids = slider.children();
         kids.each(function () {
-            var child = $(this);
+            var childSlider = $(this);
             var link = '';
-            if (!child.is('img')) {
-                if (child.is('a')) {
-                    child.addClass('nivo-imageLink');
-                    link = child;
+            if (!childSlider.is('img')) {
+                if (childSlider.is('a')) {
+                    childSlider.addClass('nivo-imageLink');
+                    link = childSlider;
                 }
-                child = child.find('img:first');
+                childSlider = childSlider.find('img:first');
             }
             // Get img width & height
-            var childWidth = (childWidth === 0) ? child.attr('width') : child.width(),
-                childHeight = (childHeight === 0) ? child.attr('height') : child.height();
+            var childWidth = (childWidth === 0) ? childSlider.attr('width') : childSlider.width(),
+                childHeight = (childHeight === 0) ? childSlider.attr('height') : childSlider.height();
 
             if (link !== '') {
                 link.css('display', 'none');
             }
-            child.css('display', 'none');
+            childSlider.css('display', 'none');
             vars.totalSlides++;
         });
 
