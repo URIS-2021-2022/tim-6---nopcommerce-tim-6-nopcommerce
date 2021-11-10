@@ -42,7 +42,7 @@ namespace Nop.Core
         {
             if (minValue > maxValue)
             {
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException("Minimal value must be lower than maximum value");
             }
             return (int)Math.Floor(minValue + ((double)maxValue - minValue) * NextDouble());
         }
