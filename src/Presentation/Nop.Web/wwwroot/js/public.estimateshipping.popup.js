@@ -240,7 +240,6 @@
         var price = shippingItems.eq(2).text().trim();
         if (provider === option.provider && price === option.price) {
           $(shippingOption).trigger('click');
-          return;
         }
       });
     },
