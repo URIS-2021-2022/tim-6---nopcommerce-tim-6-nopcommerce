@@ -145,10 +145,9 @@ namespace Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.Controllers
             Guard.NotNull(configuration, nameof(configuration));
 
 
-            if (configuration != null)
-            {
-                await _googleAuthenticatorService.DeleteConfigurationAsync(configuration);
-            }
+
+            await _googleAuthenticatorService.DeleteConfigurationAsync(configuration);
+            
             var customer = await _customerService.GetCustomerByEmailAsync(configuration.Customer) ??
                 await _customerService.GetCustomerByUsernameAsync(configuration.Customer);
 
