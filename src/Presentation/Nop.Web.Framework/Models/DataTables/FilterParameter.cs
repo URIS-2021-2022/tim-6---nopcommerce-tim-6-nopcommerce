@@ -60,7 +60,7 @@ namespace Nop.Web.Framework.Models.DataTables
         /// <param name="name">Filter parameter name</param>
         /// <param name="parentName">Filter parameter parent name</param>
         /// <param name="isParentChildParameter">Parameter indicator for linking "parent-child" tables</param>
-        public FilterParameter(string name, string parentName, bool isParentChildParameter = true)
+        public FilterParameter(string name, string parentName, bool isParentChildParameter)
         {
             Name = name;
             ParentName = parentName;
