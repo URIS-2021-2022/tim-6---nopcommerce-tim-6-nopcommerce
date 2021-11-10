@@ -45,7 +45,7 @@ namespace Nop.Services.Security
         private string DecryptTextFromMemory(byte[] data, byte[] key, byte[] iv)
         {
             using var ms = new MemoryStream(data);
-            using var cs = new CryptoStream(ms, new TripleDESCryptoServiceProvider().CreateDecryptor(key, iv), CryptoStreamMode.Read);
+            using var cs = new CryptoStream(ms, new AesCryptoServiceProvider().CreateDecryptor(key, iv), CryptoStreamMode.Read);
             using var sr = new StreamReader(cs, Encoding.Unicode);
             return sr.ReadToEnd();
         }
