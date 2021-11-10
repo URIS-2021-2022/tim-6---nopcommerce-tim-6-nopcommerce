@@ -401,8 +401,7 @@ namespace Nop.Services.Catalog
             {
                 var manufacturersQuery = _manufacturerRepository.Table.Where(m => m.Published);
 
-                //apply store mapping constraints
-                manufacturersQuery = await _storeMappingService.ApplyStoreMapping(manufacturersQuery, store.Id);
+              
 
                 //apply ACL constraints
                 manufacturersQuery = await _aclService.ApplyAcl(manufacturersQuery, customer);
