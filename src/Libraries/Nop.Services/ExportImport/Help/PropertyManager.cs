@@ -257,8 +257,16 @@ namespace Nop.Services.ExportImport.Help
 
         /// <summary>
         /// Get property array
-        /// </summary>
-        public PropertyByName<T>[] GetProperties => _properties.Values.ToArray();
+        /// </summary> 
+       /// 
+
+        public PropertyByName<T>[] getPropertyArray()
+        {
+            return _properties.Values.ToArray();
+        }
+
+
+        public PropertyByName<T>[] GetProperties => getPropertyArray();
 
         /// <summary>
         /// Set SelectList
