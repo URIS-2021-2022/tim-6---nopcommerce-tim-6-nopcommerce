@@ -401,8 +401,6 @@ namespace Nop.Services.Catalog
             {
                 var manufacturersQuery = _manufacturerRepository.Table.Where(m => m.Published);
 
-              
-
                 //apply ACL constraints
                 manufacturersQuery = await _aclService.ApplyAcl(manufacturersQuery, customer);
 
@@ -412,7 +410,7 @@ namespace Nop.Services.Catalog
         }
 
         /// <summary>
-        /// Gets a product manufacturer mapping 
+        /// Gets a product manufacturer mapping     
         /// </summary>
         /// <param name="productManufacturerId">Product manufacturer mapping identifier</param>
         /// <returns>
