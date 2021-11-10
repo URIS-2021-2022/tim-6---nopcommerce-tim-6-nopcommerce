@@ -107,6 +107,24 @@ namespace Nop.Data.DataProviders
             return await CreateDataConnectionAsync(LinqToDbDataProvider);
         }
 
+
+        /// <summary>
+        /// Creates the database connection
+        /// </summary>
+        /// <param name="dataProvider">Data provider</param>
+        /// <returns>Database connection</returns>
+        protected virtual DataConnection CreateDataConnection(IDataProvider dataProvider)
+        {
+            if (dataProvider is null)
+                throw new ArgumentNullException(nameof(dataProvider));
+
+            return new DataConnection(dataProvider, CreateDbConnection(), GetMappingSchema())
+            {
+                CommandTimeout = DataSettingsManager.GetSqlCommandTimeout()
+            };
+        }
+
+
         /// <summary>
         /// Creates the database connection
         /// </summary>
@@ -136,21 +154,6 @@ namespace Nop.Data.DataProviders
             return dataContext;
         }
 
-        /// <summary>
-        /// Creates the database connection
-        /// </summary>
-        /// <param name="dataProvider">Data provider</param>
-        /// <returns>Database connection</returns>
-        protected virtual DataConnection CreateDataConnection(IDataProvider dataProvider)
-        {
-            if (dataProvider is null)
-                throw new ArgumentNullException(nameof(dataProvider));
-
-            return new DataConnection(dataProvider, CreateDbConnection(), GetMappingSchema())
-            {
-                CommandTimeout = DataSettingsManager.GetSqlCommandTimeout()
-            };
-        }
 
         /// <summary>
         /// Creates a connection to a database
