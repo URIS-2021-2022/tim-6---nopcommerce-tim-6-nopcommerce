@@ -12,18 +12,18 @@ namespace Nop.Web.Models.Customer
 
         public IList<CustomerNavigationItemModel> CustomerNavigationItems { get; set; }
 
-        public CustomerNavigationEnum SelectedTab { get; set; }
+        public CustomerNavigation SelectedTab { get; set; }
     }
 
     public record CustomerNavigationItemModel : BaseNopModel
     {
         public string RouteName { get; set; }
         public string Title { get; set; }
-        public CustomerNavigationEnum Tab { get; set; }
+        public CustomerNavigation Tab { get; set; }
         public string ItemClass { get; set; }
     }
 
-    public enum CustomerNavigationEnum
+    public enum CustomerNavigation
     {
         Info = 0,
         Addresses = 10,
