@@ -11,7 +11,7 @@ namespace Nop.Plugin.Widgets.GoogleAnalytics.Api
         private readonly string _utmt = "tran";
 
         private readonly string _orderId;       //(utmtid)
-        private string _utmtci;        //Billing city
+        private readonly string _utmtci;        //Billing city
         private string _utmtco;        //Billing country
         private string _utmtrg;        //Billing region
         private readonly string _utmtst;        //Store name / affiliation
