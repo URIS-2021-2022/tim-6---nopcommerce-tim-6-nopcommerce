@@ -24,8 +24,7 @@
 <div class="upload-picture-block">
     <div class="picture-container">
         <div id="@(clientId + "image")" class="uploaded-image">
-            <img src="@(await pictureService.GetPictureUrlAsync(Model, pictureSize, true))" />
-        </div>
+            <img src="@(await pictureService.GetPictureUrlAsync(Model, pictureSize, true))" alt="client image"
     </div>
     <div class="upload-button-container">
         @*fine uploader container*@
