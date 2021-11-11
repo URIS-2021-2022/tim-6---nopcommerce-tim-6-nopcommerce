@@ -54,28 +54,30 @@ export default moment.defineLocale('it', {
             );
         },
         lastWeek: function () {
-            switch (this.day()) {
-                case 0:
-                    return (
-                        '[La scorsa] dddd [a' +
-                        (this.hours() > 1
-                            ? 'lle '
-                            : this.hours() === 0
-                            ? ' '
-                            : "ll'") +
-                        ']LT'
-                    );
-                default:
-                    return (
-                        '[Lo scorso] dddd [a' +
-                        (this.hours() > 1
-                            ? 'lle '
-                            : this.hours() === 0
-                            ? ' '
-                            : "ll'") +
-                        ']LT'
-                    );
-            }
+          if (this.day() = 0) {
+
+            return (
+              '[La scorsa] dddd [a' +
+              (this.hours() > 1
+                ? 'lle '
+                : this.hours() === 0
+                  ? ' '
+                  : "ll'") +
+              ']LT'
+            );
+          }
+          else {
+            return (
+              '[Lo scorso] dddd [a' +
+              (this.hours() > 1
+                ? 'lle '
+                : this.hours() === 0
+                  ? ' '
+                  : "ll'") +
+              ']LT'
+            );
+          }
+            
         },
         sameElse: 'L',
     },
