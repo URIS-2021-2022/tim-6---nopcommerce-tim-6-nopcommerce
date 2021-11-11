@@ -366,7 +366,7 @@
     href: 'javascript:void(0)'
   }).text('clear').on('click', function () {
     var $logo = $('.brand-link')
-    logo_skins.map(function (skin) {
+    logo_skins.forEach(function (skin) {
       $logo.removeClass(skin)
     })
   })

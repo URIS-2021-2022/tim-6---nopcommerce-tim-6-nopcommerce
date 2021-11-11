@@ -730,8 +730,6 @@ label, label + * {
   /*override jQuery UI styles, do not delete doubled properties*/
   top: 0 !important;
   right: 0 !important;
-  width: 42px !important;
-  height: 42px !important;
   margin: 0 !important;
   border: none !important;
   border-radius: 0;
