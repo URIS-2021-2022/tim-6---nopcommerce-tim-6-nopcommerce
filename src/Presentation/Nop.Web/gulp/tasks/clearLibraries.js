@@ -13,7 +13,7 @@ function clear_files(cb) {
   return del(targetPath + '**/*.{html,txt}').then(() => {
       cb()
     })
-};
+}
 
 function clear_fontawesome(cb) {
   return del(targetPath + '@fortawesome/fontawesome-free/{js,sprites,svgs}').then(() => {
