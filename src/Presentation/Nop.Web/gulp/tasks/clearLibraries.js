@@ -19,13 +19,13 @@ function clear_fontawesome(cb) {
   return del(targetPath + '@fortawesome/fontawesome-free/{js,sprites,svgs}').then(() => {
     cb()
   })
-};
+}
 
 function clear_tinyMceLangs(cb) {
   return del(targetPath + 'tinymce-langs').then(() => {
     cb()
   })
-};
+}
 
 exports.Execute = gulp.series(
   clear_folders,

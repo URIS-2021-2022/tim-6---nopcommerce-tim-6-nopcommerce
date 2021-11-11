@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 
 namespace Nop.Core.ComponentModel
 {
@@ -103,14 +104,18 @@ namespace Nop.Core.ComponentModel
             //we don't use string.Join() because it doesn't support invariant culture
             var counter = 0;
             var dictionary = (IDictionary<K, V>)value;
+            StringBuilder bld = new StringBuilder();
             foreach (var keyValue in dictionary)
             {
-                result += $"{Convert.ToString(keyValue.Key, CultureInfo.InvariantCulture)}, {Convert.ToString(keyValue.Value, CultureInfo.InvariantCulture)}";
+                bld.Append($"{Convert.ToString(keyValue.Key, CultureInfo.InvariantCulture)}, {Convert.ToString(keyValue.Value, CultureInfo.InvariantCulture)}");
+                //result += $"{Convert.ToString(keyValue.Key, CultureInfo.InvariantCulture)}, {Convert.ToString(keyValue.Value, CultureInfo.InvariantCulture)}";
                 //don't add ; after the last element
                 if (counter != dictionary.Count - 1)
-                    result += ";";
+                    bld.Append(";");
+                  //  result += ";";
                 counter++;
             }
+            result = bld.ToString();
 
             return result;
         }

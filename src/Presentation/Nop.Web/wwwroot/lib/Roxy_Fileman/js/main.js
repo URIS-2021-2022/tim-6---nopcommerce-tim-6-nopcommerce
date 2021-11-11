@@ -208,7 +208,6 @@ function uploadFinished(e, i, res){
 function checkUploadResult(){
   var all = $('#uploadFilesList .fileUpload').length;
   var completed = $('#uploadFilesList .fileUpload[data-ulpoad]').length;
-  var success = $('#uploadFilesList .fileUpload[data-ulpoad="ok"]').length;
   if(completed == all){
      //$('#uploadResult').html(success + ' files uploaded; '+(all - success)+' failed');
      uploadFileList = new Array();

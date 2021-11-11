@@ -51,8 +51,10 @@ function displayPopupNotification(message, messagetype, modal) {
     if ((typeof message) == 'string') {
         htmlcode = '<p>' + message + '</p>';
     } else {
+
       for (let value of message)
             htmlcode = htmlcode + '<p>' + message[value] + '</p>';
+
         }
     }
 
@@ -74,7 +76,7 @@ function displayJoinedPopupNotifications(notes) {
         if (notes.hasOwnProperty(note)) {
             var messages = notes[note];
 
-            for (var i = 0; i < messages.length; ++i) {
+            for (let value of message) {
                 var elem = document.createElement("div");
                 elem.innerHTML = messages[i];
                 elem.classList.add('popup-notification');
