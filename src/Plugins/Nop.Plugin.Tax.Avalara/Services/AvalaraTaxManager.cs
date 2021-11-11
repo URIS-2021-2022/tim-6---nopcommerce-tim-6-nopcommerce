@@ -1447,7 +1447,10 @@ namespace Nop.Plugin.Tax.Avalara.Services
                     customerExists = await ServiceClient
                         .GetCustomerAsync(_avalaraTaxSettings.CompanyId.Value, customer.Id.ToString(), null) is not null;
                 }
-                catch { }
+                catch (Exception exc)
+                {
+                    Console.WriteLine(exc);
+                }
 
                 return await CreateOrUpdateCustomerAsync(customer, _avalaraTaxSettings.CompanyId.Value, customerExists)
                     ?? throw new NopException("Failed to update customer details");
