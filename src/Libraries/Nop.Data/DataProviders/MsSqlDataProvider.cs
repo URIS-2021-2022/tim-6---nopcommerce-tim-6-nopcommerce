@@ -106,7 +106,7 @@ namespace Nop.Data.DataProviders
             for (var i = 0; i <= triesToConnect; i++)
             {
                 if (i == triesToConnect)
-                    throw new ArgumentNullException("Unable to connect to the new database. Please try one more time");
+                    throw new ArgumentNullException();
 
                 if (!DatabaseExists())
                     Thread.Sleep(1000);
