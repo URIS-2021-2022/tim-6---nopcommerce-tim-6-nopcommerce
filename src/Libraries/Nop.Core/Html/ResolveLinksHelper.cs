@@ -7,7 +7,7 @@ namespace Nop.Core.Html
     /// <summary>
     /// Represents a ResolveLinks helper
     /// </summary>
-    public partial class ResolveLinksHelper
+    public static partial class ResolveLinksHelper
     {
         #region Fields
         
