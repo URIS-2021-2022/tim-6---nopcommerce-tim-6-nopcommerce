@@ -539,7 +539,7 @@ var numberFormat = function( number, properties, pluralGenerator ) {
 				// Compact value
 				if ( compact ) {
 					partsPush( parts, "compact", compact );
-					return;
+					
 				}
 			});
 			return parts;
