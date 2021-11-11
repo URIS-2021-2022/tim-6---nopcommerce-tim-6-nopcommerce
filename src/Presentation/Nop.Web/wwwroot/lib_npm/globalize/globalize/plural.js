@@ -85,7 +85,7 @@ var Parser = (function () {
 
             if (cond === 'i = 0 or n = 1') {
                 return 'n >= 0 && n <= 1';
-            }if (cond === 'i = 0,1') {
+            } else if (cond === 'i = 0,1') {
                 return 'n >= 0 && n < 2';
             }if (cond === 'i = 1 and v = 0') {
                 this.v0 = 1;
