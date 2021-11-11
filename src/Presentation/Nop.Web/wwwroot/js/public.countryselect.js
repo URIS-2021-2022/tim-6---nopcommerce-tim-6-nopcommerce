@@ -58,4 +58,4 @@
             $(this).change(countrySelectHandler);
         });
     }
-}(jQuery)
+}
