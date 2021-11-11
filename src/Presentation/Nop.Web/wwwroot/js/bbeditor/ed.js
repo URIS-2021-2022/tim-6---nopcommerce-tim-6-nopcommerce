@@ -48,7 +48,7 @@ function doURL(obj) {
                 var rep = '[url]' + url + '[/url]';
             }
             else {
-                var rep = '[url=' + url + ']' + selNew + '[/url]';
+                var rep2 = '[url=' + url + ']' + selNew + '[/url]';
             }
 
             textarea.value = textarea.value.substring(0, start) + rep + textarea.value.substring(end, len);
