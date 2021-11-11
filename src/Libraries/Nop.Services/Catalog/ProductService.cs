@@ -230,22 +230,6 @@ namespace Nop.Services.Catalog
 
             string stockMessage;
 
-            /*TODO implement #5510
-            if (_catalogSettings.AttributeValueOutOfStockDisplayType == AttributeValueOutOfStockDisplayType.AlwaysDisplay)
-            {
-                //let's check whether all required attributes are already selected
-                //if some attribute is not selected, then return a "Products.Availability.SelectRequiredAttributes" locale 
-            }
-            else
-            {
-                //let's check whether all required attributes that could be selected are already selected
-
-                //note that it's possible that some required attribute is not selected yet, but its values are already disabled (not available)
-                //hence a customer cannot select it. in this case proceed to the logic below
-
-                //otherwise, return a "Products.Availability.SelectRequiredAttributes" locale
-            }*/
-
             var combination = await _productAttributeParser.FindProductAttributeCombinationAsync(product, attributesXml);
             if (combination != null)
             {
