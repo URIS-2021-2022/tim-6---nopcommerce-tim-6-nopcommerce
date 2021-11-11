@@ -52,7 +52,7 @@ export default moment.defineLocale('fr-ca', {
     ordinal: function (number, period) {
         switch (period) {
             // Words with masculine grammatical gender: mois, trimestre, jour
-            default:
+           
             case 'M':
             case 'Q':
             case 'D':
@@ -63,7 +63,8 @@ export default moment.defineLocale('fr-ca', {
             // Words with feminine grammatical gender: semaine
             case 'w':
             case 'W':
-                return number + (number === 1 ? 're' : 'e');
+            return number + (number === 1 ? 're' : 'e');
+            default:
         }
     },
 });
