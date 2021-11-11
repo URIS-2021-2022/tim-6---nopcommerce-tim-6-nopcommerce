@@ -374,7 +374,7 @@
     var color = $(this).data('color')
     var $logo = $('.brand-link')
     logo_skins.map(function (skin) {
-      $logo.removeClass(skin)
+      return $logo.removeClass(skin)
     })
     $logo.addClass(color)
   }).append($clear_btn))
