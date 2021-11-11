@@ -90,11 +90,11 @@ namespace Nop.Core.ComponentModel
         {
             if (destinationType != typeof(string))
                 return base.ConvertTo(context, culture, value, destinationType);
-
+            
             var result = string.Empty;
             if (value == null)
                 return result;
-            
+
 
 
             StringBuilder bld = new StringBuilder();

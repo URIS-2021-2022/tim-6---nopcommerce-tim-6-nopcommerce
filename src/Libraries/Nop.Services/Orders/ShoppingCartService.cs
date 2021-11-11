@@ -365,10 +365,7 @@ namespace Nop.Services.Orders
             }
 
             //customer entered price
-            if (product.CustomerEntersPrice)
-            {
-                if (customerEnteredPrice < product.MinimumCustomerEnteredPrice ||
-                    customerEnteredPrice > product.MaximumCustomerEnteredPrice)
+            if (product.CustomerEntersPrice && (customerEnteredPrice < product.MinimumCustomerEnteredPrice ||customerEnteredPrice > product.MaximumCustomerEnteredPrice))
                 {
                     var minimumCustomerEnteredPrice = await _currencyService.ConvertFromPrimaryStoreCurrencyAsync(product.MinimumCustomerEnteredPrice, await _workContext.GetWorkingCurrencyAsync());
                     var maximumCustomerEnteredPrice = await _currencyService.ConvertFromPrimaryStoreCurrencyAsync(product.MaximumCustomerEnteredPrice, await _workContext.GetWorkingCurrencyAsync());
@@ -376,7 +373,7 @@ namespace Nop.Services.Orders
                         await _priceFormatter.FormatPriceAsync(minimumCustomerEnteredPrice, false, false),
                         await _priceFormatter.FormatPriceAsync(maximumCustomerEnteredPrice, false, false)));
                 }
-            }
+            
 
             //quantity validation
             var hasQtyWarnings = false;
