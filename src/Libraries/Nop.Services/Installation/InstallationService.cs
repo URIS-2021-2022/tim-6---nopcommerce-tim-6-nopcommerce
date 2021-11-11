@@ -670,7 +670,7 @@ namespace Nop.Services.Installation
         /// <returns>A task that represents the asynchronous operation</returns>
         protected virtual async Task InstallCountriesAndStatesAsync()
         {
-            var countries = ISO3166.GetCollection().Select(country => new Country
+            var countries = Iso3166.GetCollection().Select(country => new Country
             {
                 Name = country.Name,
                 AllowsBilling = true,
@@ -2843,7 +2843,7 @@ namespace Nop.Services.Installation
             var isMetric = regionInfo?.IsMetric ?? false;
             var country = regionInfo?.TwoLetterISORegionName ?? string.Empty;
             var isGermany = country == "DE";
-            var isEurope = ISO3166.FromCountryCode(country)?.SubjectToVat ?? false;
+            var isEurope = Iso3166.FromCountryCode(country)?.SubjectToVat ?? false;
 
             var settingService = EngineContext.Current.Resolve<ISettingService>();
             await settingService.SaveSettingAsync(new PdfSettings
