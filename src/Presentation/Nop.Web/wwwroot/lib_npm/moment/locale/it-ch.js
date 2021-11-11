@@ -27,13 +27,17 @@ export default moment.defineLocale('it-ch', {
         nextDay: '[Domani alle] LT',
         nextWeek: 'dddd [alle] LT',
         lastDay: '[Ieri alle] LT',
-        lastWeek: function () {
-            switch (this.day()) {
-                case 0:
-                    return '[la scorsa] dddd [alle] LT';
-                default:
-                    return '[lo scorso] dddd [alle] LT';
-            }
+      lastWeek: function () {
+
+        if (this.day == 0) {
+
+          return '[la scorsa] dddd [alle] LT';
+
+        } else {
+
+          return '[lo scorso] dddd [alle] LT';
+        }
+
         },
         sameElse: 'L',
     },
