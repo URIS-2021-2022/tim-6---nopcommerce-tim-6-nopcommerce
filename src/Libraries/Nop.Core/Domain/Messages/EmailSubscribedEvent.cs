@@ -50,7 +50,7 @@ namespace Nop.Core.Domain.Messages
             if (ReferenceEquals(this, obj)) 
                 return true;
 
-            if (obj.GetType() != typeof(EmailSubscribedEvent)) 
+           if (obj.GetType() != typeof(EmailSubscribedEvent)) 
                 return false;
 
             return Equals((EmailSubscribedEvent)obj);

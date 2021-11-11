@@ -82,7 +82,7 @@ MessageFormat._parse = (function() {
         peg$startRuleFunctions = { start: peg$parsestart },
         peg$startRuleFunction  = peg$parsestart,
 
-        peg$c0 = [],
+        
         peg$c1 = function(st) {
               return { type: 'messageFormatPattern', statements: st };
             },
@@ -145,7 +145,7 @@ MessageFormat._parse = (function() {
         peg$c39 = { type: "class", value: "[^ \\t\\n\\r,.+={}]", description: "[^ \\t\\n\\r,.+={}]" },
         peg$c40 = function(s) { return s; },
         peg$c41 = function(chars) { return chars.join(''); },
-        peg$c42 = /^[^{}#\\\0-\x1F \t\n\r]/,
+        peg$c42 = /^[^{}#\\\0-\ \t\n\r]/,
         peg$c43 = { type: "class", value: "[^{}#\\\\\\0-\\x1F \\t\\n\\r]", description: "[^{}#\\\\\\0-\\x1F \\t\\n\\r]" },
         peg$c44 = function(x) { return x; },
         peg$c45 = "\\\\",
@@ -299,7 +299,7 @@ MessageFormat._parse = (function() {
           return s
             .replace(/\\/g,   '\\\\')
             .replace(/"/g,    '\\"')
-            .replace(/\x08/g, '\\b')
+            .replace(/"/g, '\\b')
             .replace(/\t/g,   '\\t')
             .replace(/\n/g,   '\\n')
             .replace(/\f/g,   '\\f')
@@ -1631,7 +1631,6 @@ MessageFormat.prototype._precompile = function(ast, data) {
         data.keys[data.pf_count] = ast.argumentIndex;
         return this._precompile( ast.elementFormat, data );
       }
-      return '';
 
     case 'elementFormat':
       args = [ propname(data.keys[data.pf_count], 'd') ];

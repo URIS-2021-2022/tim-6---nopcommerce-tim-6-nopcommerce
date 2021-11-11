@@ -1,4 +1,4 @@
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using Nop.Core.Domain.Common;
 using Nop.Core.Html.CodeFormatter;
 using Nop.Core.Infrastructure;
@@ -8,7 +8,7 @@ namespace Nop.Core.Html
     /// <summary>
     /// Represents a BBCode helper
     /// </summary>
-    public partial class BBCodeHelper
+    public static partial class BBCodeHelper
     {
         #region Fields
 

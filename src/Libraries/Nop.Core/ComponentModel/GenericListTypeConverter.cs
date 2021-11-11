@@ -95,9 +95,6 @@ namespace Nop.Core.ComponentModel
             if (value == null)
                 return result;
 
-
-
-            StringBuilder bld = new StringBuilder();
             //we don't use string.Join() because it doesn't support invariant culture
             for (var i = 0; i < ((IList<T>)value).Count; i++)
             {

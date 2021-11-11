@@ -97,7 +97,7 @@ var Accordion = {
 
     openPrevSection: function (setAllow, onlyAllowed) {
         var prevIndex = 0;
-        for (section in this.sections) {
+        for (var section in this.sections) {
             if (onlyAllowed) {
                 //ensure that the section is allowed
                 var tmp = parseInt(section) - 1;

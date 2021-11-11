@@ -18,7 +18,6 @@ namespace Nop.Web.Framework.Migrations.UpgradeTo450
 
             //do not use DI, because it produces exception on the installation process
             var settingRepository = EngineContext.Current.Resolve<IRepository<Setting>>();
-            var settingService = EngineContext.Current.Resolve<ISettingService>();
 
             //miniprofiler settings are moved to appSettings
             settingRepository

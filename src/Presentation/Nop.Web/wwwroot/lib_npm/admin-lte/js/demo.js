@@ -349,7 +349,7 @@
     var color         = $(this).data('color')
     var sidebar_class = 'sidebar-light-' + color.replace('bg-', '')
     var $sidebar      = $('.main-sidebar')
-    sidebar_skins.map(function (skin) {
+    sidebar_skins.map(function return (skin) {
       $sidebar.removeClass(skin)
     })
 
@@ -373,8 +373,8 @@
   $container.append(createSkinBlock(logo_skins, function () {
     var color = $(this).data('color')
     var $logo = $('.brand-link')
-    logo_skins.map(function (skin) {
-      $logo.removeClass(skin)
+    logo_skins.forEach(function (skin) {
+      return $logo.removeClass(skin)
     })
     $logo.addClass(color)
   }).append($clear_btn))

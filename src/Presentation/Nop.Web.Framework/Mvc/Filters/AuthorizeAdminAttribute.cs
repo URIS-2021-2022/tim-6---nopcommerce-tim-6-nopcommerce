@@ -50,15 +50,7 @@ namespace Nop.Web.Framework.Mvc.Filters
 
             #endregion
 
-            #region Ctor
-
-            public AuthorizeAdminFilter(bool ignoreFilter, IPermissionService permissionService)
-            {
-                _ignoreFilter = ignoreFilter;
-                _permissionService = permissionService;
-            }
-
-            #endregion
+          
 
             #region Utilities
 

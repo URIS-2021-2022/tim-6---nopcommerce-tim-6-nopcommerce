@@ -2055,11 +2055,14 @@ namespace Nop.Services.ExportImport
             //customer private messages
             var privateMessageManager = new PropertyManager<PrivateMessage>(new[]
             {
-                new PropertyByName<PrivateMessage>("From", async pm => await _customerService.GetCustomerByIdAsync(pm.FromCustomerId) is Customer cFrom ? (_customerSettings.UsernamesEnabled ? cFrom.Username : cFrom.Email) : string.Empty),
-                new PropertyByName<PrivateMessage>("To", async pm => await _customerService.GetCustomerByIdAsync(pm.ToCustomerId) is Customer cTo ? (_customerSettings.UsernamesEnabled ? cTo.Username : cTo.Email) : string.Empty),
+                new PropertyByName<PrivateMessage>("From", async pm => await _customerService.GetCustomerByIdAsync(pm.FromCustomerId)
+                is Customer cFrom ? (_customerSettings.UsernamesEnabled ? cFrom.Username : cFrom.Email) : string.Empty),
+                new PropertyByName<PrivateMessage>("To", async pm => await _customerService.GetCustomerByIdAsync(pm.ToCustomerId)
+                is Customer cTo ? (_customerSettings.UsernamesEnabled ? cTo.Username : cTo.Email) : string.Empty),
                 new PropertyByName<PrivateMessage>("Subject", pm => pm.Subject),
                 new PropertyByName<PrivateMessage>("Text", pm => pm.Text),
-                new PropertyByName<PrivateMessage>("Created on", async pm => (await _dateTimeHelper.ConvertToUserTimeAsync(pm.CreatedOnUtc, DateTimeKind.Utc)).ToString("D"))
+                new PropertyByName<PrivateMessage>("Created on", async pm => 
+                (await _dateTimeHelper.ConvertToUserTimeAsync(pm.CreatedOnUtc, DateTimeKind.Utc)).ToString("D"))
             }, _catalogSettings);
 
             List<PrivateMessage> pmList = null;

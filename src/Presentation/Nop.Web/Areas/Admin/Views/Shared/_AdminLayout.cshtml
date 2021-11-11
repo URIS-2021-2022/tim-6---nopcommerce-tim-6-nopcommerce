@@ -191,7 +191,9 @@
         else
         {
             @await Component.InvokeAsync("AdminWidget", new { widgetZone = AdminWidgetZones.HeaderBefore })
-            <nav class="main-header navbar navbar-expand-md navbar-dark bg-dark">
+            <nav aria-label="Related links"
+                 class="main-header navbar navbar-expand-md navbar-dark bg-dark"
+                 >
                 <ul class="navbar-nav pl-2 pl-md-0">
                     <li class="nav-item">
                         <a class="nav-link" id="nopSideBarPusher" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>

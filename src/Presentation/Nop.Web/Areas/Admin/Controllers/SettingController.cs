@@ -1186,6 +1186,7 @@ namespace Nop.Web.Areas.Admin.Controllers
 
                         _notificationService.ErrorNotification(await _localizationService.GetResourceAsync("Admin.Configuration.Settings.CustomerSettings.RegexValidationRule.Error"));
                     }
+
                 }
 
                 if (customerSettings.PhoneNumberValidationEnabled && customerSettings.PhoneNumberValidationUseRegex)

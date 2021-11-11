@@ -6,7 +6,7 @@ namespace Nop.Core
     /// <summary>
     /// Hash helper class
     /// </summary>
-    public partial class HashHelper
+    static public partial class HashHelper
     {
         /// <summary>
         /// Create a data hash

@@ -912,9 +912,9 @@ namespace Nop.Plugin.Shipping.UPS.Services
 
                 //parse transit days
                 int? transitDays = null;
-                if (!string.IsNullOrWhiteSpace(rate.GuaranteedDelivery?.BusinessDaysInTransit))
-                {
-                    if (int.TryParse(rate.GuaranteedDelivery.BusinessDaysInTransit, out var businessDaysInTransit))
+                if (!string.IsNullOrWhiteSpace(rate.GuaranteedDelivery?.BusinessDaysInTransit)
+                && int.TryParse(rate.GuaranteedDelivery.BusinessDaysInTransit, out var businessDaysInTransit))
+                    { 
                         transitDays = businessDaysInTransit;
                 }
 

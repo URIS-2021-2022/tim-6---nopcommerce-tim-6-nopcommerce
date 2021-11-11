@@ -26,7 +26,7 @@ namespace Nop.Web.Areas.Admin.Models.Reports
 
         #region Properties
 
-        public OrderByEnum OrderBy { get; set; }
+        public OrderBy OrderBy { get; set; }
 
         [NopResourceDisplayName("Admin.Reports.Customers.BestBy.StartDate")]
         [UIHint("DateNullable")]
