@@ -1392,14 +1392,19 @@ namespace Nop.Plugin.Tax.Avalara.Services
                     customerExists = await ServiceClient
                         .GetCustomerAsync(_avalaraTaxSettings.CompanyId.Value, customer.Id.ToString(), null) is not null;
                 }
-                catch { }
-                if (!customerExists)
-                    await CreateOrUpdateCustomerAsync(customer, _avalaraTaxSettings.CompanyId.Value, customerExists);
+                catch
+                {
+                    // NO NO ITS LITERALLY IMPOSSIBLE
+                    // IT MUST BE IGNORED}
+                }
+                    if (!customerExists)
+                        await CreateOrUpdateCustomerAsync(customer, _avalaraTaxSettings.CompanyId.Value, customerExists);
 
-                var model = new CreateECommerceTokenInputModel { customerNumber = customer.Id.ToString() };
-                return (await ServiceClient.CreateECommerceTokenAsync(_avalaraTaxSettings.CompanyId.Value, model))?.token
-                    ?? throw new NopException("Failed to get token");
-            });
+                    var model = new CreateECommerceTokenInputModel { customerNumber = customer.Id.ToString() };
+                    return (await ServiceClient.CreateECommerceTokenAsync(_avalaraTaxSettings.CompanyId.Value, model))?.token
+                        ?? throw new NopException("Failed to get token");
+                }
+            );
         }
 
         /// <summary>

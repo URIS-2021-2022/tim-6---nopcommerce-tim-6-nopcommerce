@@ -243,7 +243,7 @@ namespace Nop.Plugin.Misc.Sendinblue.Services
                             if (countryIsoCode > 0 && !string.IsNullOrEmpty(phone))
                             {
                                 //use the first phone code only
-                                var phoneCode = ISO3166.FromISOCode(countryIsoCode)
+                                var phoneCode = Iso3166.FromISOCode(countryIsoCode)
                                     ?.DialCodes?.FirstOrDefault()?.Replace(" ", string.Empty) ?? string.Empty;
                                 sms = phone.Replace($"+{phoneCode}", string.Empty);
                             }
@@ -511,7 +511,7 @@ namespace Nop.Plugin.Misc.Sendinblue.Services
                         if (countryIsoCode > 0 && !string.IsNullOrEmpty(phone))
                         {
                             //use the first phone code only
-                            var phoneCode = ISO3166.FromISOCode(countryIsoCode)
+                            var phoneCode = Iso3166.FromISOCode(countryIsoCode)
                                 ?.DialCodes?.FirstOrDefault()?.Replace(" ", string.Empty) ?? string.Empty;
                             sms = phone.Replace($"+{phoneCode}", string.Empty);
                         }

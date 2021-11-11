@@ -37,7 +37,6 @@ namespace Nop.Plugin.Pickup.PickupInStore.Controllers
         private readonly IStorePickupPointModelFactory _storePickupPointModelFactory;
         private readonly IStorePickupPointService _storePickupPointService;
         private readonly IStoreService _storeService;
-        private readonly AddressSettings _addressSettings;
 
         #endregion
 
@@ -61,7 +60,6 @@ namespace Nop.Plugin.Pickup.PickupInStore.Controllers
             _storePickupPointModelFactory = storePickupPointModelFactory;
             _storePickupPointService = storePickupPointService;
             _storeService = storeService;
-            _addressSettings = customerSettings;
         }
 
         #endregion

@@ -51,8 +51,10 @@ function displayPopupNotification(message, messagetype, modal) {
     if ((typeof message) == 'string') {
         htmlcode = '<p>' + message + '</p>';
     } else {
-      for (let value of message) {
-            htmlcode = htmlcode + '<p>' + message[i] + '</p>';
+
+      for (let value of message)
+            htmlcode = htmlcode + '<p>' + message[value] + '</p>';
+
         }
     }
 

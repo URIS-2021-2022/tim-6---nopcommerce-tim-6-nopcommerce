@@ -1168,8 +1168,9 @@ var dateTokenizer = function( value, numberParser, properties ) {
 			if ( length === 1 ) {
 
 				// Unicode equivalent to /\d/
-				numeric = true;
-				return tokenRe = digitsRe;
+        numeric = true;
+        tokenRe = digitsRe;
+        return tokenRe;
 			}
 		}
 
@@ -1177,8 +1178,9 @@ var dateTokenizer = function( value, numberParser, properties ) {
 			if ( length === 1 ) {
 
 				// Unicode equivalent to /\d\d?/
-				numeric = true;
-				return tokenRe = new RegExp( "^(" + digitsRe.source + "){1,2}" );
+        numeric = true;
+        tokenRe = new RegExp("^(" + digitsRe.source + "){1,2}");
+        return tokenRe;
 			}
 		}
 

@@ -192,7 +192,26 @@ namespace Nop.Data
                 ?? _staticCacheManager.PrepareKeyForDefaultCache(NopEntityCacheDefaults<TEntity>.ByIdsCacheKey, ids);
             return await _staticCacheManager.GetAsync(cacheKey, getByIdsAsync);
         }
+        /// <summary>
+        /// Get all entity entries
+        /// </summary>
+        /// <param name="func">Function to select entries</param>
+        /// <param name="getCacheKey">Function to get a cache key; pass null to don't cache; return null from this function to use the default key</param>
+        /// <param name="includeDeleted">Whether to include deleted items (applies only to <see cref="Nop.Core.Domain.Common.ISoftDeletedEntity"/> entities)</param>
+        /// <returns>Entity entries</returns>
+        public virtual IList<TEntity> GetAll(Func<IQueryable<TEntity>, IQueryable<TEntity>> func = null,
+            Func<IStaticCacheManager, CacheKey> getCacheKey = null, bool includeDeleted = true)
+        {
+            IList<TEntity> getAll()
+            {
+                var query = AddDeletedFilter(Table, includeDeleted);
+                query = func != null ? func(query) : query;
 
+                return query.ToList();
+            }
+
+            return GetEntities(getAll, getCacheKey);
+        }
         /// <summary>
         /// Get all entity entries
         /// </summary>
@@ -216,27 +235,7 @@ namespace Nop.Data
 
             return await GetEntitiesAsync(getAllAsync, getCacheKey);
         }
-
-        /// <summary>
-        /// Get all entity entries
-        /// </summary>
-        /// <param name="func">Function to select entries</param>
-        /// <param name="getCacheKey">Function to get a cache key; pass null to don't cache; return null from this function to use the default key</param>
-        /// <param name="includeDeleted">Whether to include deleted items (applies only to <see cref="Nop.Core.Domain.Common.ISoftDeletedEntity"/> entities)</param>
-        /// <returns>Entity entries</returns>
-        public virtual IList<TEntity> GetAll(Func<IQueryable<TEntity>, IQueryable<TEntity>> func = null,
-            Func<IStaticCacheManager, CacheKey> getCacheKey = null, bool includeDeleted = true)
-        {
-            IList<TEntity> getAll()
-            {
-                var query = AddDeletedFilter(Table, includeDeleted);
-                query = func != null ? func(query) : query;
-
-                return query.ToList();
-            }
-
-            return GetEntities(getAll, getCacheKey);
-        }
+        
 
         /// <summary>
         /// Get all entity entries

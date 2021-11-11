@@ -208,7 +208,7 @@
         });
 
         // Add slices for slice animations
-        var createSlices = function (slider, settings, vars) {
+        var createSlices = function (settings, vars) {
             if ($(vars.currentImage).parent().is('a')) $(vars.currentImage).parent().css('display', 'block');
             $('img[src="' + vars.currentImage.attr('src') + '"]', slider).not('.nivo-main-image,.nivo-control img').width(slider.width()).css('visibility', 'hidden').show();
             var sliceHeight = ($('img[src="' + vars.currentImage.attr('src') + '"]', slider).not('.nivo-main-image,.nivo-control img').parent().is('a')) ? $('img[src="' + vars.currentImage.attr('src') + '"]', slider).not('.nivo-main-image,.nivo-control img').parent().height() : $('img[src="' + vars.currentImage.attr('src') + '"]', slider).not('.nivo-main-image,.nivo-control img').height();
@@ -656,7 +656,8 @@
         afterChange: function () { },
         slideshowEnd: function () { },
         lastSlide: function () { },
-        afterLoad: function () { }
+      afterLoad: function () {
+// This is intentional       }
     };
 
     $.fn._reverse = [].reverse;

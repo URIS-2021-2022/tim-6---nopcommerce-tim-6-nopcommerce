@@ -40,7 +40,6 @@
 var createError = Globalize._createError,
 	partsJoin = Globalize._partsJoin,
 	partsPush = Globalize._partsPush,
-	regexpEscape = Globalize._regexpEscape,
 	runtimeKey = Globalize._runtimeKey,
 	stringPad = Globalize._stringPad,
 	validateParameterType = Globalize._validateParameterType,
@@ -323,7 +322,6 @@ var numberFormatSignificantDigits = function( number, minimumSignificantDigits, 
  * 11: suffix
  * 12: -
  */
-var numberPatternRe = ( /^(('([^']|'')*'|[^*#@0,.E])*)(\*.)?((([#,]*[0,]*0+)(\.0*[0-9]*#*)?)|([#,]*@+#*))(E\+?0+)?(('[^']+'|''|[^*#@0,.E])*)$/ );
 
 
 

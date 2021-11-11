@@ -196,7 +196,7 @@ function dbgBreak(val) {
 	// Usage examples: {{dbg:...}}, {{:~dbg(...)}}, {{dbg .../}}, {^{for ... onAfterLink=~dbg}} etc.
 	try {
 		console.log("JsRender dbg breakpoint: " + val);
-		throw "dbg breakpoint"; // To break here, stop on caught exceptions.
+		throw new Error("dbg breakpoint" + 505); // To break here, stop on caught exceptions.
 	}
 	catch (e) {}
 	return this.base ? this.baseApply(arguments) : val;
@@ -2035,7 +2035,7 @@ function tmplFn(markup, tmpl, isLinkExpr, convertBack, hasElse) {
 	pushprecedingContent(markup.length);
 
 	if (loc = astTop[astTop.length - 1]) {
-		blockTagCheck("" + loc !== loc && (+loc[10] === loc[10]) && loc[0]);
+		blockTagCheck("" + loc != loc && (+loc[10] === loc[10]) && loc[0]);
 	}
 //			result = tmplFnsCache[markup] = buildCode(astTop, tmpl);
 //		}
@@ -2801,7 +2801,7 @@ $viewsSettings = $views.settings;
 			: (
 				$subSettings._clFns && $subSettings._clFns(), // Clear linkExprStore (cached compiled expressions), since debugMode setting affects compilation for expressions
 				$subSettings.debugMode = debugMode,
-				$subSettings.onError = debugMode + "" === debugMode
+				$subSettings.onError = debugMode + "" == debugMode
 					? function() { return debugMode; }
 					: $isFunction(debugMode)
 						? debugMode
@@ -2872,7 +2872,7 @@ $viewsSettings = $views.settings;
 						// set to true. (Use {{include}} to compose templates without array iteration)
 						done += isArray ? value.length : 1;
 					}
-					if (self.rendering.done = done) {
+					if (self.rendering.done == done) {
 						self.selected = tagCtx.index;
 					}
 					// If nothing was rendered we will look at the next {{else}}. Otherwise, we are done.

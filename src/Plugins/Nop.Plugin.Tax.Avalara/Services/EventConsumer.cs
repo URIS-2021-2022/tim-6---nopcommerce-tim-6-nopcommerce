@@ -155,7 +155,7 @@ namespace Nop.Plugin.Tax.Avalara.Services
                         return;
                 }
 
-                var infoItem = navigationModel.CustomerNavigationItems.FirstOrDefault(item => item.Tab == CustomerNavigationEnum.Info);
+                var infoItem = navigationModel.CustomerNavigationItems.FirstOrDefault(item => item.Tab == CustomerNavigation.Info);
                 var position = navigationModel.CustomerNavigationItems.IndexOf(infoItem) + 1;
                 navigationModel.CustomerNavigationItems.Insert(position, new CustomerNavigationItemModel
                 {
@@ -164,7 +164,7 @@ namespace Nop.Plugin.Tax.Avalara.Services
 
                     //since we can neither extend enum nor use the default value (e.g. null or 0), we set the least used element
                     //Tab = AvalaraTaxDefaults.ExemptionCertificatesMenuTab,
-                    Tab = CustomerNavigationEnum.ForumSubscriptions,
+                    Tab = CustomerNavigation.ForumSubscriptions,
                     Title = await _localizationService.GetResourceAsync("Plugins.Tax.Avalara.ExemptionCertificates")
                 });
             }

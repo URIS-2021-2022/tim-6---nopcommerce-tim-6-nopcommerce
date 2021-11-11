@@ -1,4 +1,4 @@
-using System.Net;
+﻿using System.Net;
 using System.Text.RegularExpressions;
 
 namespace Nop.Core.Html.CodeFormatter
@@ -6,7 +6,7 @@ namespace Nop.Core.Html.CodeFormatter
     /// <summary>
     /// Represents a code format helper
     /// </summary>
-    public partial class CodeFormatHelper
+    public static partial class CodeFormatHelper
     {
         #region Fields
 

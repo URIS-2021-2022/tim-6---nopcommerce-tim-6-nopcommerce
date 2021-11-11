@@ -88,10 +88,6 @@ a {
   cursor: pointer;
 }
 
-a img {
-  opacity: 0.99; /*firefox scale bug fix*/
-}
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -725,7 +721,6 @@ label, label + * {
 .ui-dialog-titlebar button {
   position: absolute;
   top: 0;
-  right: 0;
   width: 42px;
   height: 42px;
   border: none;
@@ -936,8 +931,6 @@ label, label + * {
   padding: 20px 0;
 }
 
-.header-links {
-}
 
 .header-links ul {
   font-size: 0;

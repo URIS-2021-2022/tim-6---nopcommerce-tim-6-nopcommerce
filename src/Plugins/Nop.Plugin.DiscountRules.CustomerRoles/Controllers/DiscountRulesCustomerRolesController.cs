@@ -129,14 +129,14 @@ namespace Nop.Plugin.DiscountRules.CustomerRoles.Controllers
                 return Ok(new { NewRequirementId = discountRequirement.Id });
             }
 
-            return Ok(new { Errors = GetErrorsFromModelState(ModelState) });
+            return Ok(new { Errors = GetErrorsFromModelState() });
         }
 
         #endregion
 
         #region Utilities
 
-        private IEnumerable<string> GetErrorsFromModelState(ModelStateDictionary modelState)
+        private IEnumerable<string> GetErrorsFromModelState()
         {
             return ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage));
         }

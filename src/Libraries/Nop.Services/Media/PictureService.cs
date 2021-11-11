@@ -637,15 +637,11 @@ namespace Nop.Services.Media
                 {
                     if (pictureBinary != null)
                     {
-                        try
-                        {
+                        
                             using var image = SKBitmap.Decode(pictureBinary);
                             var format = GetImageFormatByMimeType(picture.MimeType);
                             pictureBinary = ImageResize(image, format, targetSize);
-                        }
-                        catch
-                        {
-                        }
+                   
                     }
 
                     SaveThumbAsync(thumbFilePath, thumbFileName, picture.MimeType, pictureBinary).Wait();
