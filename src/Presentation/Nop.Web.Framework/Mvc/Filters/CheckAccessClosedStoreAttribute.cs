@@ -59,18 +59,7 @@ namespace Nop.Web.Framework.Mvc.Filters
 
             #region Ctor
 
-            public CheckAccessClosedStoreFilter(bool ignoreFilter,
-                IPermissionService permissionService,
-                IStoreContext storeContext,
-                ITopicService topicService,
-                StoreInformationSettings storeInformationSettings)
-            {
-                _ignoreFilter = ignoreFilter;
-                _permissionService = permissionService;
-                _storeContext = storeContext;
-                _topicService = topicService;
-                _storeInformationSettings = storeInformationSettings;
-            }
+            
 
             #endregion
 
