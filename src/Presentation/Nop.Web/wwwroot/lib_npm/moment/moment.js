@@ -1676,27 +1676,22 @@ function localeWeekdaysParse(weekdayName, format, strict) {
             this._weekdaysParse[i] = new RegExp(regex.replace('.', ''), 'i');
         }
         // test the regex
-        if (
-            strict &&
+      if (
+
+            (strict &&
             format === 'dddd' &&
-            this._fullWeekdaysParse[i].test(weekdayName)
-        ) {
-            return i;
-        } else if (
-            strict &&
+            this._fullWeekdaysParse[i].test(weekdayName)) ||
+            (strict &&
             format === 'ddd' &&
-            this._shortWeekdaysParse[i].test(weekdayName)
-        ) {
-            return i;
-        } else if (
-            strict &&
+            this._shortWeekdaysParse[i].test(weekdayName)) ||
+            (strict &&
             format === 'dd' &&
-            this._minWeekdaysParse[i].test(weekdayName)
+            this._minWeekdaysParse[i].test(weekdayName)) ||
+            (!strict && this._weekdaysParse[i].test(weekdayName))
+
         ) {
             return i;
-        } else if (!strict && this._weekdaysParse[i].test(weekdayName)) {
-            return i;
-        }
+        } 
     }
 }
 
