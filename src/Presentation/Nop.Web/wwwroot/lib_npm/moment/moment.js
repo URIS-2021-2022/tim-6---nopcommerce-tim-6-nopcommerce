@@ -4319,13 +4319,12 @@ function localeEras(m, format) {
         l,
         date,
         eras = this._eras || getLocale('en')._eras;
-    for (i = 0, l = eras.length; i < l; ++i) {
-        switch (typeof eras[i].since) {
-            case 'string':
-                // truncate time
-                date = hooks(eras[i].since).startOf('day');
-                eras[i].since = date.valueOf();
-                break;
+  for (i = 0, l = eras.length; i < l; ++i) {
+
+        if (typeof eras[i].since == 'string') {
+            // truncate time
+            date = hooks(eras[i].since).startOf('day');
+            eras[i].since = date.valueOf();
         }
 
         switch (typeof eras[i].until) {
