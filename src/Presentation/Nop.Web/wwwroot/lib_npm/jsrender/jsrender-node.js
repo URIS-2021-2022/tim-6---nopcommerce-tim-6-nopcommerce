@@ -2872,7 +2872,7 @@ $viewsSettings = $views.settings;
 						// set to true. (Use {{include}} to compose templates without array iteration)
 						done += isArray ? value.length : 1;
 					}
-					if (self.rendering.done = done) {
+					if (self.rendering.done == done) {
 						self.selected = tagCtx.index;
 					}
 					// If nothing was rendered we will look at the next {{else}}. Otherwise, we are done.
