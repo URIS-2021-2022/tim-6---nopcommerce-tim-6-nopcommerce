@@ -53,21 +53,6 @@ namespace Nop.Web.Framework.Mvc.Filters
 
             #endregion
 
-            #region Ctor
-
-            public ValidateCaptchaFilter(string actionParameterName,
-                CaptchaHttpClient captchaHttpClient,
-                CaptchaSettings captchaSettings,
-                ILogger logger,
-                IWorkContext workContext)
-            {
-                _actionParameterName = actionParameterName;
-                _captchaHttpClient = captchaHttpClient;
-                _captchaSettings = captchaSettings;
-                _logger = logger;
-                _workContext = workContext;
-            }
-
             #endregion
 
             #region Utilities
@@ -151,6 +136,5 @@ namespace Nop.Web.Framework.Mvc.Filters
             #endregion
         }
 
-        #endregion
     }
 }
