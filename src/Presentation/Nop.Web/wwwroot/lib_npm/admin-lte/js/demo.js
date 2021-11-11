@@ -373,7 +373,7 @@
   $container.append(createSkinBlock(logo_skins, function () {
     var color = $(this).data('color')
     var $logo = $('.brand-link')
-    logo_skins.map(function (skin) {
+    logo_skins.forEach(function (skin) {
       return $logo.removeClass(skin)
     })
     $logo.addClass(color)
