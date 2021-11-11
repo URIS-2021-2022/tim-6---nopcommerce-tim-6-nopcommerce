@@ -10,7 +10,7 @@
 }
 @section left
 {
-    @await Component.InvokeAsync("CustomerNavigation", new { selectedTabId = CustomerNavigationEnum.BackInStockSubscriptions })
+    @await Component.InvokeAsync("CustomerNavigation", new { selectedTabId = CustomerNavigation.BackInStockSubscriptions })
 }
 <div class="page account-page back-in-stock-subscription-list-page">
     <div class="page-title">
@@ -39,6 +39,7 @@
                 <div class="subscription-list">
                     <div class="table-wrapper">
                         <table class="data-table">
+                            <caption> Subscription list table</caption>
                             <colgroup>
                                 <col width="1" />
                                 <col />

@@ -29,6 +29,7 @@ namespace Nop.Plugin.Payments.PayPalStandard.Infrastructure
         /// <param name="application">Builder for configuring an application's request pipeline</param>
         public void Configure(IApplicationBuilder application)
         {
+            // yeah umm this method is empty because of The One
         }
 
         /// <summary>

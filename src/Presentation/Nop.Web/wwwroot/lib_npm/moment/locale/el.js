@@ -61,11 +61,10 @@ export default moment.defineLocale('el', {
         nextDay: '[Αύριο {}] LT',
         nextWeek: 'dddd [{}] LT',
         lastDay: '[Χθες {}] LT',
-        lastWeek: function () {
-            switch (this.day()) {
-                case 6:
+      lastWeek: function () {
+                if (this.day() == 6)
                     return '[το προηγούμενο] dddd [{}] LT';
-                default:
+                else
                     return '[την προηγούμενη] dddd [{}] LT';
             }
         },

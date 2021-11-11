@@ -1676,27 +1676,22 @@ function localeWeekdaysParse(weekdayName, format, strict) {
             this._weekdaysParse[i] = new RegExp(regex.replace('.', ''), 'i');
         }
         // test the regex
-        if (
-            strict &&
+      if (
+
+            (strict &&
             format === 'dddd' &&
-            this._fullWeekdaysParse[i].test(weekdayName)
-        ) {
-            return i;
-        } else if (
-            strict &&
+            this._fullWeekdaysParse[i].test(weekdayName)) ||
+            (strict &&
             format === 'ddd' &&
-            this._shortWeekdaysParse[i].test(weekdayName)
-        ) {
-            return i;
-        } else if (
-            strict &&
+            this._shortWeekdaysParse[i].test(weekdayName)) ||
+            (strict &&
             format === 'dd' &&
-            this._minWeekdaysParse[i].test(weekdayName)
+            this._minWeekdaysParse[i].test(weekdayName)) ||
+            (!strict && this._weekdaysParse[i].test(weekdayName))
+
         ) {
             return i;
-        } else if (!strict && this._weekdaysParse[i].test(weekdayName)) {
-            return i;
-        }
+        } 
     }
 }
 
@@ -4319,13 +4314,12 @@ function localeEras(m, format) {
         l,
         date,
         eras = this._eras || getLocale('en')._eras;
-    for (i = 0, l = eras.length; i < l; ++i) {
-        switch (typeof eras[i].since) {
-            case 'string':
-                // truncate time
-                date = hooks(eras[i].since).startOf('day');
-                eras[i].since = date.valueOf();
-                break;
+  for (i = 0, l = eras.length; i < l; ++i) {
+
+        if (typeof eras[i].since == 'string') {
+            // truncate time
+            date = hooks(eras[i].since).startOf('day');
+            eras[i].since = date.valueOf();
         }
 
         switch (typeof eras[i].until) {
@@ -5466,9 +5460,6 @@ function humanize(argWithSuffix, argThresholds) {
     if (typeof argWithSuffix === 'object') {
         argThresholds = argWithSuffix;
         argWithSuffix = false;
-    }
-    if (typeof argWithSuffix === 'boolean') {
-        withSuffix = argWithSuffix;
     }
     if (typeof argThresholds === 'object') {
         th = Object.assign({}, thresholds, argThresholds);

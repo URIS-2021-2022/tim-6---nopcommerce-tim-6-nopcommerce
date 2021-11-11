@@ -677,7 +677,7 @@ namespace Nop.Services.Orders
             PaymentStatus? ps = null,
             ShippingStatus? ss = null,
             int billingCountryId = 0,
-            OrderByEnum orderBy = OrderByEnum.OrderByQuantity,
+            OrderBy orderBy = OrderBy.OrderByQuantity,
             int pageIndex = 0,
             int pageSize = int.MaxValue,
             bool showHidden = false)
@@ -698,8 +698,8 @@ namespace Nop.Services.Orders
 
             bsReport = orderBy switch
             {
-                OrderByEnum.OrderByQuantity => bsReport.OrderByDescending(x => x.TotalQuantity),
-                OrderByEnum.OrderByTotalAmount => bsReport.OrderByDescending(x => x.TotalAmount),
+                OrderBy.OrderByQuantity => bsReport.OrderByDescending(x => x.TotalQuantity),
+                OrderBy.OrderByTotalAmount => bsReport.OrderByDescending(x => x.TotalAmount),
                 _ => throw new ArgumentException("Wrong orderBy parameter", nameof(orderBy)),
             };
 

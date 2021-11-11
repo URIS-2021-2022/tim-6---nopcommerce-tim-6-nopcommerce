@@ -104,7 +104,7 @@
                         LengthMenu = Model.BestCustomersByOrderTotal.AvailablePageSizes,
                         Filters = new List<FilterParameter>
                         {
-                            new FilterParameter(nameof(Model.BestCustomersByOrderTotal.OrderBy), (int)OrderByEnum.OrderByTotalAmount),
+                            new FilterParameter(nameof(Model.BestCustomersByOrderTotal.OrderBy), (int)OrderBy.OrderByTotalAmount),
                             new FilterParameter(nameof(Model.BestCustomersByOrderTotal.StartDate), nameof(CustomerReportsSearchModel.BestCustomersByOrderTotal)),
                             new FilterParameter(nameof(Model.BestCustomersByOrderTotal.EndDate), nameof(CustomerReportsSearchModel.BestCustomersByOrderTotal)),
                             new FilterParameter(nameof(Model.BestCustomersByOrderTotal.OrderStatusId), nameof(CustomerReportsSearchModel.BestCustomersByOrderTotal)),

@@ -40,7 +40,6 @@
 var createError = Globalize._createError,
 	partsJoin = Globalize._partsJoin,
 	partsPush = Globalize._partsPush,
-	regexpEscape = Globalize._regexpEscape,
 	runtimeKey = Globalize._runtimeKey,
 	stringPad = Globalize._stringPad,
 	validateParameterType = Globalize._validateParameterType,
@@ -323,7 +322,6 @@ var numberFormatSignificantDigits = function( number, minimumSignificantDigits, 
  * 11: suffix
  * 12: -
  */
-var numberPatternRe = ( /^(('([^']|'')*'|[^*#@0,.E])*)(\*.)?((([#,]*[0,]*0+)(\.0*[0-9]*#*)?)|([#,]*@+#*))(E\+?0+)?(('[^']+'|''|[^*#@0,.E])*)$/ );
 
 
 
@@ -443,7 +441,7 @@ var numberFormat = function( number, properties, pluralGenerator ) {
 			});
 
 			// Number
-			character = character.replace( /[0-9]/, function( digit ) {
+      character = character.replace( /\d/, function( digit ) {
 
 				// Numbering system
 				if ( nuDigitsMap ) {
@@ -539,7 +537,7 @@ var numberFormat = function( number, properties, pluralGenerator ) {
 				// Compact value
 				if ( compact ) {
 					partsPush( parts, "compact", compact );
-					return;
+					
 				}
 			});
 			return parts;
