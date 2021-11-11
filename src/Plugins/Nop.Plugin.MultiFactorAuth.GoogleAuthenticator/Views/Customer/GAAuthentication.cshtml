@@ -9,7 +9,6 @@
             <caption>Caption for visually impaired. No discrimination!!!</caption>
             <colgroup>
                 <col/>
-                <col width="80%"/>
             </colgroup>
             <tbody>
                 <tr>
@@ -21,7 +20,8 @@
                         <div class="qr-code-conteiner">
                             
                             <div class="qr-code-image">
-                                <img src="@(Model.QrCodeImageUrl)" />
+                                <img src="@(Model.QrCodeImageUrl)" 
+                                     alt="Some text idk"/>
                             </div>
                         </div>
                     </td>
