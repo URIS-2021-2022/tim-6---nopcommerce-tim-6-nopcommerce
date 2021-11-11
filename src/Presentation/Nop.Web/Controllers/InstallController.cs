@@ -73,7 +73,7 @@ namespace Nop.Web.Controllers
             return model;
         }
 
-        private InstallModel PrepareLanguageList(InstallModel model)
+        private void PrepareLanguageList(InstallModel model)
         {
             foreach (var lang in _locService.GetAvailableLanguages())
             {
@@ -85,7 +85,7 @@ namespace Nop.Web.Controllers
                 });
             }
 
-            return model;
+            
         }
 
         private InstallModel PrepareAvailableDataProviders(InstallModel model)
