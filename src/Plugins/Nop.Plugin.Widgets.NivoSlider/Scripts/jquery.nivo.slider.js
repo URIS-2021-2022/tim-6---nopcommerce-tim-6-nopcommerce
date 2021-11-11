@@ -179,7 +179,7 @@
             }, function () {
                 vars.paused = false;
                 // Restart the timer
-                if (timer === '' && !settings.manualAdvance) {
+                if (timer == '' && !settings.manualAdvance) {
                     timer = setInterval(function () { nivoRun(slider, kids, settings, false); }, settings.pauseTime);
                 }
             });
@@ -650,7 +650,9 @@
         prevText: 'Prev',
         nextText: 'Next',
         randomStart: false,
-        beforeChange: function () { },
+        beforeChange: function () {
+          //This is intentional
+        },
         afterChange: function () { },
         slideshowEnd: function () { },
         lastSlide: function () { },

@@ -257,7 +257,7 @@ namespace Nop.Core
         /// <returns>The converted value.</returns>
         public static T To<T>(object value)
         {
-            //return (T)Convert.ChangeType(value, typeof(T), CultureInfo.InvariantCulture);
+            
             return (T)To(value, typeof(T));
         }
 
@@ -319,7 +319,10 @@ namespace Nop.Core
             {
                 date = new DateTime(year.Value, month.Value, day.Value, CultureInfo.CurrentCulture.Calendar);
             }
-            catch { }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc);
+            }
             return date;
         }
 

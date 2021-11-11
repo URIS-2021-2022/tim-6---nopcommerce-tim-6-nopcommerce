@@ -14,7 +14,7 @@
 (function(global) {
 "use strict";
 if (typeof exports !== 'object' ) {
-	throw "Outside Node.js use //jsviews.com/download/jsrender.js";
+  throw "Outside Node.js use //jsviews.com/download/jsrender.js"; {exports}
 }
 
 //========================== Top-level vars ==========================

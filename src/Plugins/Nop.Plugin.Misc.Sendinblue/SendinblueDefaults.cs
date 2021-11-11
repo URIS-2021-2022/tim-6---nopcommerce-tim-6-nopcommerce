@@ -336,12 +336,12 @@ namespace Nop.Plugin.Misc.Sendinblue
         /// <summary>
         /// Generic attribute name to hide general settings block on the plugin configuration page
         /// </summary>
-        public static string HideGeneralBlock = "SendinbluePage.HideGeneralBlock";
+        public const string HideGeneralBlock = "SendinbluePage.HideGeneralBlock";
 
         /// <summary>
         /// Generic attribute name to hide synchronization block on the plugin configuration page
         /// </summary>
-        public static string HideSynchronizationBlock = "SendinbluePage.HideSynchronizationBlock";
+        public const string HideSynchronizationBlock = "SendinbluePage.HideSynchronizationBlock";
 
         /// <summary>
         /// Generic attribute name to hide transactional block on the plugin configuration page

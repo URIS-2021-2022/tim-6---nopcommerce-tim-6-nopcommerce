@@ -5467,9 +5467,6 @@ function humanize(argWithSuffix, argThresholds) {
         argThresholds = argWithSuffix;
         argWithSuffix = false;
     }
-    if (typeof argWithSuffix === 'boolean') {
-        withSuffix = argWithSuffix;
-    }
     if (typeof argThresholds === 'object') {
         th = Object.assign({}, thresholds, argThresholds);
         if (argThresholds.s != null && argThresholds.ss == null) {

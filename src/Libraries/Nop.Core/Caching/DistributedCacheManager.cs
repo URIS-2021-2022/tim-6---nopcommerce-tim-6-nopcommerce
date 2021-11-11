@@ -31,8 +31,8 @@ namespace Nop.Core.Caching
 
         static DistributedCacheManager()
         {
-            _locker = new AsyncLock();
-            _keys = new List<string>();
+             _locker = new AsyncLock();
+             _keys = new List<string>();
         }
 
         public DistributedCacheManager(AppSettings appSettings, IDistributedCache distributedCache, IHttpContextAccessor httpContextAccessor) :base(appSettings)
@@ -129,6 +129,7 @@ namespace Nop.Core.Caching
         /// </summary>
         public void Dispose()
         {
+            throw new NotSupportedException();
         }
 
         /// <summary>

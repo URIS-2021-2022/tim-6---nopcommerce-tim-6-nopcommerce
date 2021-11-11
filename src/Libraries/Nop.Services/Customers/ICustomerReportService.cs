@@ -30,7 +30,7 @@ namespace Nop.Services.Customers
         /// The task result contains the report
         /// </returns>
         Task<IPagedList<BestCustomerReportLine>> GetBestCustomersReportAsync(DateTime? createdFromUtc,
-            DateTime? createdToUtc, OrderStatus? os, PaymentStatus? ps, ShippingStatus? ss, OrderByEnum orderBy,
+            DateTime? createdToUtc, OrderStatus? os, PaymentStatus? ps, ShippingStatus? ss, OrderBy orderBy,
             int pageIndex = 0, int pageSize = 214748364);
 
         /// <summary>

@@ -98,14 +98,7 @@ namespace Nop.Data.DataProviders
         /// <returns>Connection to a database</returns>
         protected abstract DbConnection GetInternalDbConnection(string connectionString);
 
-        /// <summary>
-        /// Creates the database connection
-        /// </summary>
-        /// <returns>A task that represents the asynchronous operation</returns>
-        protected virtual async Task<DataConnection> CreateDataConnectionAsync()
-        {
-            return await CreateDataConnectionAsync(LinqToDbDataProvider);
-        }
+      
 
 
         /// <summary>
@@ -131,6 +124,16 @@ namespace Nop.Data.DataProviders
         protected virtual DataConnection CreateDataConnection()
         {
             return CreateDataConnection(LinqToDbDataProvider);
+        }
+
+
+        /// <summary>
+        /// Creates the database connection
+        /// </summary>
+        /// <returns>A task that represents the asynchronous operation</returns>
+        protected virtual async Task<DataConnection> CreateDataConnectionAsync()
+        {
+            return await CreateDataConnectionAsync(LinqToDbDataProvider);
         }
 
         /// <summary>
@@ -167,7 +170,7 @@ namespace Nop.Data.DataProviders
         {
             var dbConnection = GetInternalDbConnection(!string.IsNullOrEmpty(connectionString) ? connectionString : await GetCurrentConnectionStringAsync());
 
-            return MiniProfillerEnabled ? new ProfiledDbConnection((DbConnection)dbConnection, MiniProfiler.Current) : dbConnection;
+            return MiniProfillerEnabled ? new ProfiledDbConnection(dbConnection, MiniProfiler.Current) : dbConnection;
         }
 
         /// <summary>

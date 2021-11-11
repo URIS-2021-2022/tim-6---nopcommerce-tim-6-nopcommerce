@@ -229,7 +229,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             if (await _workContext.GetCurrentVendorAsync() != null)
                 return RedirectToAction("List");
 
-            if (selectedIds == null || selectedIds.Count() == 0)
+            if (selectedIds == null || !selectedIds.Any())
                 return NoContent();
 
             //filter not approved reviews
