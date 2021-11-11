@@ -2801,7 +2801,7 @@ $viewsSettings = $views.settings;
 			: (
 				$subSettings._clFns && $subSettings._clFns(), // Clear linkExprStore (cached compiled expressions), since debugMode setting affects compilation for expressions
 				$subSettings.debugMode = debugMode,
-				$subSettings.onError = debugMode + "" === debugMode
+				$subSettings.onError = debugMode + "" == debugMode
 					? function() { return debugMode; }
 					: $isFunction(debugMode)
 						? debugMode
