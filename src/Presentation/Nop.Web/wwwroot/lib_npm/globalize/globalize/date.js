@@ -939,8 +939,7 @@ var dateFormatterFn = function( dateToPartsFormatter ) {
  * parseProperties( cldr )
  *
  * @cldr [Cldr instance].
- *
- * @timeZone [String] FIXME.
+
  *
  * Return parser properties.
  */

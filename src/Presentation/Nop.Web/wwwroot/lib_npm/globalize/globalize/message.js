@@ -299,7 +299,7 @@ MessageFormat._parse = (function() {
           return s
             .replace(/\\/g,   '\\\\')
             .replace(/"/g,    '\\"')
-            .replace(/\x08/g, '\\b')
+            .replace(/"/g, '\\b')
             .replace(/\t/g,   '\\t')
             .replace(/\n/g,   '\\n')
             .replace(/\f/g,   '\\f')
