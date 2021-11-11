@@ -145,7 +145,7 @@ MessageFormat._parse = (function() {
         peg$c39 = { type: "class", value: "[^ \\t\\n\\r,.+={}]", description: "[^ \\t\\n\\r,.+={}]" },
         peg$c40 = function(s) { return s; },
         peg$c41 = function(chars) { return chars.join(''); },
-        peg$c42 = /^[^{}#\\\0-\x1F \t\n\r]/,
+        peg$c42 = /^[^{}#\\\0-\ \t\n\r]/,
         peg$c43 = { type: "class", value: "[^{}#\\\\\\0-\\x1F \\t\\n\\r]", description: "[^{}#\\\\\\0-\\x1F \\t\\n\\r]" },
         peg$c44 = function(x) { return x; },
         peg$c45 = "\\\\",
