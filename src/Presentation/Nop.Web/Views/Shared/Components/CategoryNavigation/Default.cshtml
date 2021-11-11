@@ -37,12 +37,12 @@
                     <text> </text>@T("Categories.TotalProducts", lineModel.Category.NumberOfProducts.Value)
                 }
             </a>
-            @{
-                if (lineModel.Category.Id == lineModel.CurrentCategoryId ||
-                    lineModel.Category.SubCategories.Count(BreadCrumbContainsCurrentCategoryId) > 0)
-                {
-                    if (lineModel.Category.SubCategories.Count > 0)
-                    {
+           
+               if (lineModel.Category.Id == lineModel.CurrentCategoryId ||
+                   lineModel.Category.SubCategories.Count(BreadCrumbContainsCurrentCategoryId) > 0)
+               {
+                   if (lineModel.Category.SubCategories.Count > 0)
+                   {
                         <ul class="sublist">
                             @foreach (var subCategory in lineModel.Category.SubCategories)
                             {
@@ -54,12 +54,13 @@
                                 await CategoryLine(categoryLineModel);
                             }
                         </ul>
-                    }
-                }
+                   }
+               }
             }
-        </li>
-    }
-}
+                   }
+
+
+               }
 
 @if (Model.Categories.Count > 0)
 {

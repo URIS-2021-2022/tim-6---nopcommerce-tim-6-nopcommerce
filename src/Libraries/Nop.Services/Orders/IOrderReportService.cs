@@ -138,7 +138,7 @@ namespace Nop.Services.Orders
             PaymentStatus? ps = null,
             ShippingStatus? ss = null,
             int billingCountryId = 0,
-            OrderByEnum orderBy = OrderByEnum.OrderByQuantity,
+            OrderBy orderBy = OrderBy.OrderByQuantity,
             int pageIndex = 0,
             int pageSize = int.MaxValue,
             bool showHidden = false);

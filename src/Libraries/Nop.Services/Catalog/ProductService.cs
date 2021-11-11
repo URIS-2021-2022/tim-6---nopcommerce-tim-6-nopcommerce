@@ -1844,13 +1844,13 @@ namespace Nop.Services.Catalog
         {
             var query = from rp in _relatedProductRepository.Table
                         join p in _productRepository.Table on rp.ProductId2 equals p.Id
-                        where rp.ProductId1 == productId &&
+                        where rp.ProductId1 == productId1 &&
                         !p.Deleted &&
                         (showHidden || p.Published)
                         orderby rp.DisplayOrder, rp.Id
                         select rp;
 
-            var relatedProducts = await _staticCacheManager.GetAsync(_staticCacheManager.PrepareKeyForDefaultCache(NopCatalogDefaults.RelatedProductsCacheKey, productId, showHidden), async () => await query.ToListAsync());
+            var relatedProducts = await _staticCacheManager.GetAsync(_staticCacheManager.PrepareKeyForDefaultCache(NopCatalogDefaults.RelatedProductsCacheKey, productId1, showHidden), async () => await query.ToListAsync());
 
             return relatedProducts;
         }

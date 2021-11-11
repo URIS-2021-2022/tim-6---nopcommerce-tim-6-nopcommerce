@@ -1,9 +1,9 @@
-namespace Nop.Core.Domain.Messages
+﻿namespace Nop.Core.Domain.Messages
 {
     /// <summary>
     /// Email unsubscribed event
     /// </summary>
-    public class EmailUnsubscribedEvent
+    public class EmailUnsubscribedEvent 
     {
         /// <summary>
         /// Ctor

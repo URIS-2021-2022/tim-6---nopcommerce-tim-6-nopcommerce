@@ -29,10 +29,10 @@ namespace Nop.Core.Caching
 
         #region Ctor
 
-         DistributedCacheManager()
+        static DistributedCacheManager()
         {
-            static _locker = new AsyncLock();
-            static _keys = new List<string>();
+             _locker = new AsyncLock();
+             _keys = new List<string>();
         }
 
         public DistributedCacheManager(AppSettings appSettings, IDistributedCache distributedCache, IHttpContextAccessor httpContextAccessor) :base(appSettings)
