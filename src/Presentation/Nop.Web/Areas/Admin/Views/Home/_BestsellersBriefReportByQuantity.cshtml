@@ -40,7 +40,7 @@
         @await Html.PartialAsync("Table", new DataTablesModel
         {
             Name = "bestsellers-byquantity-grid",
-            UrlRead = new DataUrl("BestsellersBriefReportByQuantityList", "Order", new RouteValueDictionary { [nameof(Model.OrderBy)] = OrderByEnum.OrderByQuantity }),
+            UrlRead = new DataUrl("BestsellersBriefReportByQuantityList", "Order", new RouteValueDictionary { [nameof(Model.OrderBy)] = OrderBy.OrderByQuantity }),
             Length = Model.PageSize,
             Dom = "<'row'<'col-md-12't>>" +
                   "<'row margin-t-5'" +

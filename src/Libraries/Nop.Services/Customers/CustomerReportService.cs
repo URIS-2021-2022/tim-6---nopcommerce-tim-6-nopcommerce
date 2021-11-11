@@ -60,7 +60,7 @@ namespace Nop.Services.Customers
         /// The task result contains the report
         /// </returns>
         public virtual async Task<IPagedList<BestCustomerReportLine>> GetBestCustomersReportAsync(DateTime? createdFromUtc,
-            DateTime? createdToUtc, OrderStatus? os, PaymentStatus? ps, ShippingStatus? ss, OrderByEnum orderBy,
+            DateTime? createdToUtc, OrderStatus? os, PaymentStatus? ps, ShippingStatus? ss, OrderBy orderBy,
             int pageIndex = 0, int pageSize = 214748364)
         {
             int? orderStatusId = null;
@@ -95,8 +95,8 @@ namespace Nop.Services.Customers
                          };
             query2 = orderBy switch
             {
-                OrderByEnum.OrderByQuantity => query2.OrderByDescending(x => x.OrderCount),
-                OrderByEnum.OrderByTotalAmount => query2.OrderByDescending(x => x.OrderTotal),
+                OrderBy.OrderByQuantity => query2.OrderByDescending(x => x.OrderCount),
+                OrderBy.OrderByTotalAmount => query2.OrderByDescending(x => x.OrderTotal),
                 _ => throw new ArgumentException("Wrong orderBy parameter", nameof(orderBy)),
             };
             var tmp = await query2.ToPagedListAsync(pageIndex, pageSize);

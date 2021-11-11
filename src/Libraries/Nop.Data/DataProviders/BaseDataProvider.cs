@@ -170,7 +170,7 @@ namespace Nop.Data.DataProviders
         {
             var dbConnection = GetInternalDbConnection(!string.IsNullOrEmpty(connectionString) ? connectionString : await GetCurrentConnectionStringAsync());
 
-            return MiniProfillerEnabled ? new ProfiledDbConnection((DbConnection)dbConnection, MiniProfiler.Current) : dbConnection;
+            return MiniProfillerEnabled ? new ProfiledDbConnection(dbConnection, MiniProfiler.Current) : dbConnection;
         }
 
         /// <summary>

@@ -179,7 +179,7 @@
             }, function () {
                 vars.paused = false;
                 // Restart the timer
-                if (timer === '' && !settings.manualAdvance) {
+                if (timer == '' && !settings.manualAdvance) {
                     timer = setInterval(function () { nivoRun(slider, kids, settings, false); }, settings.pauseTime);
                 }
             });
