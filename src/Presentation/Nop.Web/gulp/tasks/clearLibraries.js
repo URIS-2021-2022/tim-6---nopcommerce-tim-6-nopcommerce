@@ -7,7 +7,7 @@ function clear_folders(cb) {
   return del(targetPath + '**/{docs,nuget,test,less,scss,src,typescript,node_modules}').then(() => {
     cb()
   })
-};
+}
 
 function clear_files(cb) {
   return del(targetPath + '**/*.{html,txt}').then(() => {

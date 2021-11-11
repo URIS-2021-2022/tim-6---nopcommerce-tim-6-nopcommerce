@@ -52,6 +52,7 @@ namespace Nop.Data
         /// <param name="application">Builder for configuring an application's request pipeline</param>
         public void Configure(IApplicationBuilder application)
         {
+            //Configure the using of added middleware
         }
 
         /// <summary>
