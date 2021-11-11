@@ -88,10 +88,6 @@ a {
   cursor: pointer;
 }
 
-a img {
-  opacity: 0.99; /*firefox scale bug fix*/
-}
-
 table {
   width: 100%;
   border-collapse: collapse;
