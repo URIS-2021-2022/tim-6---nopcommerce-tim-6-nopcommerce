@@ -481,7 +481,10 @@ namespace Nop.Services.Installation
                     CreatedOrUpdatedDateUTC = DateTime.UtcNow
                 });
             }
-            catch { }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         /// <returns>A task that represents the asynchronous operation</returns>
