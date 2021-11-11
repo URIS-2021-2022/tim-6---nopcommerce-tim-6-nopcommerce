@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 
 namespace Nop.Core.ComponentModel
 {
@@ -89,20 +90,26 @@ namespace Nop.Core.ComponentModel
         {
             if (destinationType != typeof(string))
                 return base.ConvertTo(context, culture, value, destinationType);
-
+            
             var result = string.Empty;
             if (value == null)
                 return result;
 
+
+
+            StringBuilder bld = new StringBuilder();
             //we don't use string.Join() because it doesn't support invariant culture
             for (var i = 0; i < ((IList<T>)value).Count; i++)
             {
                 var str1 = Convert.ToString(((IList<T>)value)[i], CultureInfo.InvariantCulture);
-                result += str1;
+                bld.Append(str1);
+                //result += str1;
                 //don't add comma after the last element
                 if (i != ((IList<T>)value).Count - 1)
-                    result += ",";
+                    // result += ",";
+                    bld.Append(",");
             }
+            result = bld.ToString();
 
             return result;
         }
