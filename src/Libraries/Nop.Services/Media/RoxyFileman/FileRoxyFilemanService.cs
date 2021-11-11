@@ -302,7 +302,7 @@ namespace Nop.Services.Media.RoxyFileman
             path = (await GetVirtualPathAsync(path)).TrimEnd('/');
             var fullPath = GetFullPath(path);
             if (!_fileProvider.DirectoryExists(fullPath))
-                throw new Exception(await GetLanguageResourceAsync("E_CreateArchive"));
+                throw new ArgumentNullException(await GetLanguageResourceAsync("E_CreateArchive"));
 
             if (!await IsPathAllowedAsync(fullPath))
                 throw new Exception(await GetLanguageResourceAsync("E_CreateArchive"));

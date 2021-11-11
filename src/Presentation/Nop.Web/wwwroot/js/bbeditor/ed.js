@@ -29,12 +29,12 @@ function doURL(obj) {
     if (url != '' && url != null) {
         if (document.selection) {
             textarea.focus();
-            var sel = document.selection.createRange();
-            if (sel.text == "") {
-                sel.text = '[url]' + url + '[/url]';
+            var selNew = document.selection.createRange();
+            if (selNew.text == "") {
+                selNew.text = '[url]' + url + '[/url]';
             }
             else {
-                sel.text = '[url=' + url + ']' + sel.text + '[/url]';
+                selNew.text = '[url=' + url + ']' + selNew.text + '[/url]';
             }
         }
         else {
@@ -42,13 +42,13 @@ function doURL(obj) {
             var start = textarea.selectionStart;
             var end = textarea.selectionEnd;
 
-            var sel = textarea.value.substring(start, end);
+            var selNew = textarea.value.substring(start, end);
 
-            if (sel == "") {
+            if (selNew == "") {
                 var rep = '[url]' + url + '[/url]';
             }
             else {
-                var rep = '[url=' + url + ']' + sel + '[/url]';
+                var rep = '[url=' + url + ']' + selNew + '[/url]';
             }
 
             textarea.value = textarea.value.substring(0, start) + rep + textarea.value.substring(end, len);

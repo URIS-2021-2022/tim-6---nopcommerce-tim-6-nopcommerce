@@ -16,7 +16,7 @@ namespace Nop.Data.Migrations
 
         public NopProcessorAccessor(IEnumerable<IMigrationProcessor> processors)
         {
-            ConfigureProcessor(processors.ToList());
+            
         }
 
         #endregion
@@ -29,6 +29,9 @@ namespace Nop.Data.Migrations
         /// <param name="processors">Collection of migration processors</param>
         protected virtual void ConfigureProcessor(IList<IMigrationProcessor> processors)
         {
+
+            ConfigureProcessor(processors.ToList());
+
             var dataSettings = DataSettingsManager.LoadSettings();
 
             if (processors.Count == 0)

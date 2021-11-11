@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Net.Http.Headers;
@@ -19,6 +20,9 @@ namespace Nop.Web.Framework.Security.Captcha
         private readonly CaptchaSettings _captchaSettings;
         private readonly HttpClient _httpClient;
         private readonly IWebHelper _webHelper;
+
+
+        private readonly string[] _whiteList = { "https://www.sonarsource.com" }; //potrebno je kreirati odgovarajuću white listu
 
         #endregion
 
@@ -59,6 +63,12 @@ namespace Nop.Web.Framework.Security.Captcha
                 _captchaSettings.ReCaptchaPrivateKey,
                 responseValue,
                 _webHelper.GetCurrentIpAddress());
+
+            // Match the incoming URL against a whitelist
+            if (!_whiteList.Contains(url))
+            {
+                return null;
+            }
 
             //get response
             var response = await _httpClient.GetStringAsync(url);

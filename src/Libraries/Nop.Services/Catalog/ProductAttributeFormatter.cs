@@ -130,24 +130,26 @@ namespace Nop.Services.Catalog
                             else if (attribute.AttributeControlType == AttributeControlType.FileUpload)
                             {
                                 //file upload
-                                Guid.TryParse(value, out var downloadGuid);
-                                var download = await _downloadService.GetDownloadByGuidAsync(downloadGuid);
-                                if (download != null)
+                                if (Guid.TryParse(value, out var downloadGuid) == true)
                                 {
-                                    var fileName = $"{download.Filename ?? download.DownloadGuid.ToString()}{download.Extension}";
+                                    var download = await _downloadService.GetDownloadByGuidAsync(downloadGuid);
+                                    if (download != null)
+                                    {
+                                        var fileName = $"{download.Filename ?? download.DownloadGuid.ToString()}{download.Extension}";
 
-                                    //encode (if required)
-                                    if (htmlEncode)
-                                        fileName = WebUtility.HtmlEncode(fileName);
+                                        //encode (if required)
+                                        if (htmlEncode)
+                                            fileName = WebUtility.HtmlEncode(fileName);
 
-                                    var attributeText = allowHyperlinks ? $"<a href=\"{_webHelper.GetStoreLocation()}download/getfileupload/?downloadId={download.DownloadGuid}\" class=\"fileuploadattribute\">{fileName}</a>"
-                                        : fileName;
+                                        var attributeText = allowHyperlinks ? $"<a href=\"{_webHelper.GetStoreLocation()}download/getfileupload/?downloadId={download.DownloadGuid}\" class=\"fileuploadattribute\">{fileName}</a>"
+                                            : fileName;
 
-                                    //encode (if required)
-                                    if (htmlEncode)
-                                        attributeName = WebUtility.HtmlEncode(attributeName);
+                                        //encode (if required)
+                                        if (htmlEncode)
+                                            attributeName = WebUtility.HtmlEncode(attributeName);
 
-                                    formattedAttribute = $"{attributeName}: {attributeText}";
+                                        formattedAttribute = $"{attributeName}: {attributeText}";
+                                    }
                                 }
                             }
                             else

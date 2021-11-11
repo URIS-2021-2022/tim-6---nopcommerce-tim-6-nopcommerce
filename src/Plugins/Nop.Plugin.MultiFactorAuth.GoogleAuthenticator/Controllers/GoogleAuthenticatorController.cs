@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Nop.Core;
@@ -127,6 +128,10 @@ namespace Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.Controllers
             return Json(model);
         }
 
+
+
+
+
         [HttpPost]
         public async Task<IActionResult> GoogleAuthenticatorDelete (GoogleAuthenticatorModel model)
         {
@@ -135,10 +140,14 @@ namespace Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.Controllers
 
             //delete configuration
             var configuration = await _googleAuthenticatorService.GetConfigurationByIdAsync(model.Id);
-            if (configuration != null)
-            {
-                await _googleAuthenticatorService.DeleteConfigurationAsync(configuration);
-            }
+
+
+            Guard.NotNull(configuration, nameof(configuration));
+
+
+
+            await _googleAuthenticatorService.DeleteConfigurationAsync(configuration);
+            
             var customer = await _customerService.GetCustomerByEmailAsync(configuration.Customer) ??
                 await _customerService.GetCustomerByUsernameAsync(configuration.Customer);
 
@@ -150,4 +159,18 @@ namespace Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.Controllers
 
         #endregion
     }
+
+    public sealed class ValidatedNotNullAttribute : Attribute { }
+
+    public static class Guard
+    {
+        public static void NotNull<T>([ValidatedNotNull] this T value, string name) where T : class
+        {
+            if (value == null)
+                throw new ArgumentNullException(name);
+        }
+    }
+
+
+
 }

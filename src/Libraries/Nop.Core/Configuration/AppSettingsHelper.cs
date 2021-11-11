@@ -13,6 +13,11 @@ namespace Nop.Core.Configuration
     /// </summary>
     public partial class AppSettingsHelper
     {
+
+        protected AppSettingsHelper()
+        {
+
+        }
         #region Methods
 
         /// <summary>

@@ -371,9 +371,8 @@ namespace Nop.Services.Catalog
                 price += additionalCharge;
 
                 //rental products
-                if (product.IsRental)
-                    if (rentalStartDate.HasValue && rentalEndDate.HasValue)
-                        price *= _productService.GetRentalPeriods(product, rentalStartDate.Value, rentalEndDate.Value);
+                if (product.IsRental && rentalStartDate.HasValue && rentalEndDate.HasValue)
+                    price *= _productService.GetRentalPeriods(product, rentalStartDate.Value, rentalEndDate.Value);
 
                 var priceWithoutDiscount = price;
 
@@ -557,7 +556,19 @@ namespace Nop.Services.Catalog
                 //rounding with 0.50 intervals
                 case RoundingType.Rounding05:
                     fractionPart *= 10;
-                    fractionPart = fractionPart < 25 ? fractionPart * -1 : fractionPart < 50 || fractionPart < 75 ? 50 - fractionPart : 100 - fractionPart;
+                    
+                    if (fractionPart < 25)
+                    {
+                        fractionPart = fractionPart * -1;
+                    }
+                    else if (fractionPart < 50 || fractionPart < 75)
+                    {
+                        fractionPart = 50 - fractionPart;
+                    }
+                    else
+                    {
+                        fractionPart = 100 - fractionPart;
+                    }
 
                     rez += fractionPart / 100;
                     break;

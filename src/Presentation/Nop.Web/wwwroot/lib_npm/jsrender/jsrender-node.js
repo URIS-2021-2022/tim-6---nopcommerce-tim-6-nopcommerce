@@ -1991,7 +1991,7 @@ function tmplFn(markup, tmpl, isLinkExpr, convertBack, hasElse) {
 				current[10] = loc; // Store current location of open tag, to be able to add contentMarkup when we reach closing tag
 				current[11] = openTagName; // Used for checking syntax (matching close tag)
 			}
-		} else if (closeBlock) {
+		} else {
 			blockTagCheck(closeBlock !== current[0] && closeBlock !== current[11] && closeBlock, current[0]); // Check matching close tag name
 			current[10] = markup.substring(current[10], index); // contentMarkup for block tag
 			current = stack.pop();

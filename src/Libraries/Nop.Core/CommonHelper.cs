@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Text.RegularExpressions;
 using Nop.Core.Infrastructure;
 
@@ -169,7 +170,6 @@ namespace Nop.Core
         /// <returns>Result</returns>
         public static bool ArraysEqual<T>(T[] a1, T[] a2)
         {
-            //also see Enumerable.SequenceEqual(a1, a2);
             if (ReferenceEquals(a1, a2))
                 return true;
 
@@ -270,14 +270,18 @@ namespace Nop.Core
         {
             if (string.IsNullOrEmpty(str))
                 return string.Empty;
-            var result = string.Empty;
+            var bld = new StringBuilder();
             foreach (var c in str)
                 if (c.ToString() != c.ToString().ToLower())
-                    result += " " + c.ToString();
+                {
+                    bld.Append(' ');
+                    bld.Append(c.ToString());
+                }
                 else
-                    result += c.ToString();
+                    bld.Append(c.ToString());
 
             //ensure no spaces (e.g. when the first letter is upper case)
+            var result = bld.ToString();
             result = result.TrimStart();
             return result;
         }

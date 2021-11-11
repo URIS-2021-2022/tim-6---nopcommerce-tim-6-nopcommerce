@@ -401,20 +401,16 @@ namespace Nop.Services.Catalog
             {
                 var manufacturersQuery = _manufacturerRepository.Table.Where(m => m.Published);
 
-                //apply store mapping constraints
-                manufacturersQuery = await _storeMappingService.ApplyStoreMapping(manufacturersQuery, store.Id);
-
                 //apply ACL constraints
                 manufacturersQuery = await _aclService.ApplyAcl(manufacturersQuery, customer);
 
-                query = query.Where(pm => manufacturersQuery.Any(m => m.Id == pm.ManufacturerId));
             }
 
             return await _staticCacheManager.GetAsync(key, query.ToList);
         }
 
         /// <summary>
-        /// Gets a product manufacturer mapping 
+        /// Gets a product manufacturer mapping     
         /// </summary>
         /// <param name="productManufacturerId">Product manufacturer mapping identifier</param>
         /// <returns>
