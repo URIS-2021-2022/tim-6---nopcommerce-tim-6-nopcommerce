@@ -244,7 +244,7 @@
 		//     (sep unicode_variant_subtag)* ;
 		//
 		// Although unicode_language_subtag = alpha{2,8}, I'm using alpha{2,3}. Because, there's no language on CLDR lengthier than 3.
-		aux = unicodeLanguageId.match( /^(([a-z]{2,3})(-([A-Z][a-z]{3}))?(-([A-Z]{2}|[0-9]{3}))?)((-([a-zA-Z0-9]{5,8}|[0-9][a-zA-Z0-9]{3}))*)$|^(root)$/ );
+		aux = unicodeLanguageId.match( /^(([a-z]{2,3})(-([A-Z][a-z]{3}))?(-([A-Z]{2}|[0-9]{3}))?)((-([a-zA-Z0-9]{5,8}|\d[a-zA-Z0-9]{3}))*)$|^(root)$/ );
 		if ( aux === null ) {
 			return [ "und", "Zzzz", "ZZ" ];
 		}
