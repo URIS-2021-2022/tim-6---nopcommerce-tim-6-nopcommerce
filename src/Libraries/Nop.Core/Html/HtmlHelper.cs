@@ -7,7 +7,7 @@ namespace Nop.Core.Html
     /// <summary>
     /// Represents a HTML helper
     /// </summary>
-    public partial class HtmlHelper
+    public static partial class HtmlHelper
     {
         #region Utilities
 
