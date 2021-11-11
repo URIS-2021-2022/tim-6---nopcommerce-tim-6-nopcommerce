@@ -119,7 +119,7 @@ namespace Nop.Services.Messages
         /// <param name="fromName">From display name</param>
         /// <param name="toAddress">To address</param>
         /// <param name="toName">To display name</param>
-        /// <param name="replyTo">ReplyTo address</param>
+        /// <param name="ReplyToAddress">ReplyTo address</param>
         /// <param name="replyToName">ReplyTo display name</param>
         /// <param name="bcc">BCC addresses list</param>
         /// <param name="cc">CC addresses list</param>
@@ -130,7 +130,7 @@ namespace Nop.Services.Messages
         /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task SendEmailAsync(EmailAccount emailAccount, string subject, string body,
             string fromAddress, string fromName, string toAddress, string toName,
-            string replyTo = null, string replyToName = null,
+            string ReplyToAddress = null, string replyToName = null,
             IEnumerable<string> bcc = null, IEnumerable<string> cc = null,
             string attachmentFilePath = null, string attachmentFileName = null,
             int attachedDownloadId = 0, IDictionary<string, string> headers = null)
@@ -140,9 +140,9 @@ namespace Nop.Services.Messages
             message.From.Add(new MailboxAddress(fromName, fromAddress));
             message.To.Add(new MailboxAddress(toName, toAddress));
 
-            if (!string.IsNullOrEmpty(replyTo))
+            if (!string.IsNullOrEmpty(ReplyToAddress))
             {
-                message.ReplyTo.Add(new MailboxAddress(replyToName, replyTo));
+                message.ReplyTo.Add(new MailboxAddress(replyToName, ReplyToAddress));
             }
 
             //BCC
