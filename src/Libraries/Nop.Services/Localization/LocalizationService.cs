@@ -647,7 +647,12 @@ namespace Nop.Services.Localization
         {
             if (permissionRecord == null)
                 throw new ArgumentNullException(nameof(permissionRecord));
+             SaveLocalizedPermissionNameInternalAsync(permissionRecord);
+            
+        }
 
+        private async void SaveLocalizedPermissionNameInternalAsync(PermissionRecord permissionRecord)
+        {
             var resourceName = $"{NopLocalizationDefaults.PermissionLocaleStringResourcesPrefix}{permissionRecord.SystemName}";
             var resourceValue = permissionRecord.Name;
 

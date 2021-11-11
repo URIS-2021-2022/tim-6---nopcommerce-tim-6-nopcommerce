@@ -82,7 +82,7 @@ MessageFormat._parse = (function() {
         peg$startRuleFunctions = { start: peg$parsestart },
         peg$startRuleFunction  = peg$parsestart,
 
-        peg$c0 = [],
+        
         peg$c1 = function(st) {
               return { type: 'messageFormatPattern', statements: st };
             },

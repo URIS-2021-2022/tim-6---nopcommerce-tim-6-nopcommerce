@@ -441,7 +441,7 @@ var numberFormat = function( number, properties, pluralGenerator ) {
 			});
 
 			// Number
-			character = character.replace( /[0-9]/, function( digit ) {
+      character = character.replace( /\d/, function( digit ) {
 
 				// Numbering system
 				if ( nuDigitsMap ) {
@@ -537,7 +537,7 @@ var numberFormat = function( number, properties, pluralGenerator ) {
 				// Compact value
 				if ( compact ) {
 					partsPush( parts, "compact", compact );
-					return;
+					
 				}
 			});
 			return parts;
