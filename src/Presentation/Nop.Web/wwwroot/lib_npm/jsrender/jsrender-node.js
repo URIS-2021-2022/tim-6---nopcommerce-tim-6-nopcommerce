@@ -196,7 +196,7 @@ function dbgBreak(val) {
 	// Usage examples: {{dbg:...}}, {{:~dbg(...)}}, {{dbg .../}}, {^{for ... onAfterLink=~dbg}} etc.
 	try {
 		console.log("JsRender dbg breakpoint: " + val);
-		throw "dbg breakpoint"; // To break here, stop on caught exceptions.
+		throw new Error("dbg breakpoint" + 505); // To break here, stop on caught exceptions.
 	}
 	catch (e) {}
 	return this.base ? this.baseApply(arguments) : val;
