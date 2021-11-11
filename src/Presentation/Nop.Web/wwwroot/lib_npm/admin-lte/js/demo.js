@@ -349,7 +349,7 @@
     var color         = $(this).data('color')
     var sidebar_class = 'sidebar-light-' + color.replace('bg-', '')
     var $sidebar      = $('.main-sidebar')
-    sidebar_skins.map(function (skin) {
+    sidebar_skins.map(function return (skin) {
       $sidebar.removeClass(skin)
     })
 
