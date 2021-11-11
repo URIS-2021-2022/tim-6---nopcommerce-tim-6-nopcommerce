@@ -650,7 +650,9 @@
         prevText: 'Prev',
         nextText: 'Next',
         randomStart: false,
-        beforeChange: function () { },
+        beforeChange: function () {
+          //This is intentional
+        },
         afterChange: function () { },
         slideshowEnd: function () { },
         lastSlide: function () { },
