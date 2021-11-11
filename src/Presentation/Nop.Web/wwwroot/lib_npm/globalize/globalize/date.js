@@ -693,6 +693,9 @@ var dateFormatProperties = function( pattern, cldr, timeZone ) {
 				formatNumber = true;
 				break;
 
+      // Week - Week of Year (w) or Week of Month (W).
+      case "w":
+      case "W":
 			case "Y":
 
 				// Year in "Week of Year"
@@ -747,13 +750,6 @@ var dateFormatProperties = function( pattern, cldr, timeZone ) {
 				}
 				break;
 
-			// Week - Week of Year (w) or Week of Month (W).
-			case "w":
-			case "W":
-				properties.firstDay = dateFirstDayOfWeek( cldr );
-				properties.minDays = cldr.supplemental.weekData.minDays();
-				formatNumber = true;
-				break;
 
 			// Day
 			case "d":
