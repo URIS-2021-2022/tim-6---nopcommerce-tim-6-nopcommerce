@@ -40,7 +40,6 @@
 var createError = Globalize._createError,
 	partsJoin = Globalize._partsJoin,
 	partsPush = Globalize._partsPush,
-	regexpEscape = Globalize._regexpEscape,
 	runtimeKey = Globalize._runtimeKey,
 	stringPad = Globalize._stringPad,
 	validateParameterType = Globalize._validateParameterType,
