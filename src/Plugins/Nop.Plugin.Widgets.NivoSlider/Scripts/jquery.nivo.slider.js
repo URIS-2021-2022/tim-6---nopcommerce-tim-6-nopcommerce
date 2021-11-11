@@ -656,7 +656,8 @@
         afterChange: function () { },
         slideshowEnd: function () { },
         lastSlide: function () { },
-        afterLoad: function () { }
+      afterLoad: function () {
+// This is intentional       }
     };
 
     $.fn._reverse = [].reverse;
