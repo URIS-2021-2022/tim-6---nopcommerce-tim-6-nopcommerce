@@ -216,12 +216,11 @@ namespace Nop.Services.Catalog
                             }
 
                             //display quantity
-                            if (_shoppingCartSettings.RenderAssociatedAttributeValueQuantity && attributeValue.AttributeValueType == AttributeValueType.AssociatedToProduct)
-                            {
-                                //render only when more than 1
-                                if (attributeValue.Quantity > 1)
+                            if (_shoppingCartSettings.RenderAssociatedAttributeValueQuantity && attributeValue.AttributeValueType == AttributeValueType.AssociatedToProduct
+                                && attributeValue.Quantity > 1)
+                            
                                     formattedAttribute += string.Format(await _localizationService.GetResourceAsync("ProductAttributes.Quantity"), attributeValue.Quantity);
-                            }
+                            
 
                             //encode (if required)
                             if (htmlEncode)
