@@ -270,10 +270,10 @@ namespace Nop.Core
                 if (c.ToString() != c.ToString().ToLower())
                 {
                     bld.Append(' ');
-                    bld.Append(c.ToString());
+                    bld.Append(c);
                 }
                 else
-                    bld.Append(c.ToString());
+                    bld.Append(c);
 
             //ensure no spaces (e.g. when the first letter is upper case)
             var result = bld.ToString();
