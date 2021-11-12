@@ -287,7 +287,7 @@
                             <input type="text" class="form-control admin-search-box typeahead" placeholder="@T("Admin.Menu.Search")">
                         </div>
                     </div>
-                    <nav class="mt-2">
+                    <nav class="mt-2" aria-label="Admin widget">
                         @await Component.InvokeAsync("AdminWidget", new { widgetZone = AdminWidgetZones.SearchBoxBefore })
                         <script>
                             $(document).ready(function () {
