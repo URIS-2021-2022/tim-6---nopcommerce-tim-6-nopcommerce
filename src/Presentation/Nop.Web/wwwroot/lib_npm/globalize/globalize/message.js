@@ -1425,7 +1425,7 @@ function propname(key, obj) {
     var jkey = JSON.stringify(key);
     return obj ? obj + '[' + jkey + ']' : jkey;
   }
-};
+}
 
 
 /** Create a new message formatter
