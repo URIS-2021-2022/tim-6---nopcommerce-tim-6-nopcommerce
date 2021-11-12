@@ -79,14 +79,14 @@ export default moment.defineLocale('gom-latn', {
             // the ordinal 'er' only applies to day of the month
             case 'D':
                 return number + 'er';
-            default:
             case 'M':
             case 'Q':
             case 'DDD':
             case 'd':
             case 'w':
             case 'W':
-                return number;
+              return number;
+            default:
         }
     },
     week: {
