@@ -20,7 +20,6 @@
       success: function(data, textStatus, jqXHR) {
         $.each(data,
           function(id, value) {
-            //console.log("id:" + id + "\nvalue:" + value);
             if (value !== null) {
               var val = $(`#${prefix}${id}`).val(value);
               if (id.indexOf('CountryId') >= 0) {
