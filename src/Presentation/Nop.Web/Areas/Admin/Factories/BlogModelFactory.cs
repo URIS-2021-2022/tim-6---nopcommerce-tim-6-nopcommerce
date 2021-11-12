@@ -184,7 +184,7 @@ namespace Nop.Web.Areas.Admin.Factories
                 if (i != blogTags.Count - 1)
                     blogTagsSb.Append(",");
             }
-            blogTagsSb.Append("]");
+            blogTagsSb.Append(']');
 
             model.InitialBlogTags = blogTagsSb.ToString();
 

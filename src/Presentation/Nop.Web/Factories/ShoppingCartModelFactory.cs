@@ -342,10 +342,13 @@ namespace Nop.Web.Factories
                         {
                             var downloadGuidStr = _checkoutAttributeParser
                                 .ParseValues(selectedCheckoutAttributes, attribute.Id).FirstOrDefault();
-                            Guid.TryParse(downloadGuidStr, out var downloadGuid);
-                            var download = await _downloadService.GetDownloadByGuidAsync(downloadGuid);
-                            if (download != null)
-                                attributeModel.DefaultValue = download.DownloadGuid.ToString();
+                            if(Guid.TryParse(downloadGuidStr, out var downloadGuid) == true)
+                                {
+                                    var download = await _downloadService.GetDownloadByGuidAsync(downloadGuid);
+                                    if (download != null)
+                                        attributeModel.DefaultValue = download.DownloadGuid.ToString();
+                                }
+                             
                         }
                     }
 
