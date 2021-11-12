@@ -95,7 +95,7 @@ var currencySupplementalOverride = function( currency, pattern, cldr ) {
 		fraction = "." + stringPad( "0", digits ).slice( 0, -1 ) + fractionData._rounding;
 	}
 
-	return pattern.replace( /\.(#+|0*[0-9]|0+[0-9]?)/g, fraction );
+	return pattern.replace( /\.(#+|0*\d|0+[0-9]?)/g, fraction );
 };
 
 

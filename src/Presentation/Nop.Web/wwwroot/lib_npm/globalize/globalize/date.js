@@ -2017,7 +2017,7 @@ var dateTokenizerProperties = function( pattern, cldr, timeZone ) {
 			.replace( /HH|mm|ss/g, "((" + digitsReSource + "){2})" )
 
 			// Unicode equivalent to (\\d\\d?)
-			.replace( /H|m/g, "((" + digitsReSource + "){1,2})" );
+			.replace( /[Hm]/g, "((" + digitsReSource + "){1,2})" );
 
 		if ( timeSeparator ) {
 			re = re.replace( /:/g, timeSeparator );
