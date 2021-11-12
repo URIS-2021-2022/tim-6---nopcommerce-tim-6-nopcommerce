@@ -1584,7 +1584,8 @@ var dateTokenizer = function( value, numberParser, properties ) {
 
 				// Unicode equivalent to /\d\d/
 				numeric = true;
-				return tokenRe = new RegExp( "^(" + digitsRe.source + "){2}" );
+              tokenRe = new RegExp("^(" + digitsRe.source + "){2}");
+              return tokenRe
 			}
 		}
 
