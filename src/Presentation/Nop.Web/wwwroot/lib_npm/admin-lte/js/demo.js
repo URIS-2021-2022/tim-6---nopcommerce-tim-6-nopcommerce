@@ -219,8 +219,7 @@
     var $main_header = $('.main-header')
     $main_header.removeClass('navbar-dark').removeClass('navbar-light')
     navbar_all_colors.map(function (color) {
-      $main_header.removeClass(color)
-      return;
+      return $main_header.removeClass(color);
     })
 
     if (navbar_dark_skins.indexOf(color) > -1) {

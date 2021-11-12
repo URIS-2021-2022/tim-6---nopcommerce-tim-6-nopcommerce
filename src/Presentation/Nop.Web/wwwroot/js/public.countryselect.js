@@ -55,7 +55,7 @@
     }
     $.fn.countrySelect = function () {
         this.each(function () {
-            $(this).change(countrySelectHandler);
-        });
+            $(this).change(countrySelectHandler)
+        })
     }
 }
