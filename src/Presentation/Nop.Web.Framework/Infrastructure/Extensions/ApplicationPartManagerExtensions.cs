@@ -145,7 +145,7 @@ namespace Nop.Web.Framework.Infrastructure.Extensions
 
             try
             {
-                assembly = Assembly.LoadFrom(assemblyFile);
+                assembly = Assembly.Load(assemblyFile);
             }
             catch (FileLoadException)
             {
