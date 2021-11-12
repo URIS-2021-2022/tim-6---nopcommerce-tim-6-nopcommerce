@@ -1,6 +1,7 @@
 ﻿//Contributor: https://www.codeproject.com/Articles/493455/Server-side-Google-Analytics-Transactions
 
 using System;
+using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Nop.Core;
@@ -49,7 +50,12 @@ namespace Nop.Plugin.Widgets.GoogleAnalytics.Api
             {
                 (await httpClient.GetAsync(url)).EnsureSuccessStatusCode();
             }
-            catch { }
+            catch (IOException e) {
+
+                if (e.Source != null)
+                    Console.WriteLine("IOException source: {0}", e.Source);
+                throw;
+            }
         }
 
         private string CreateParameterString()

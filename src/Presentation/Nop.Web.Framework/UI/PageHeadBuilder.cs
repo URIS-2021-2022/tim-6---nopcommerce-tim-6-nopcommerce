@@ -108,12 +108,13 @@ namespace Nop.Web.Framework.UI
             using (SHA256 sha = new SHA256Managed())
             {
                 // string concatenation
-                var hashInput = "";
+                StringBuilder bld = new StringBuilder();
                 foreach (var part in parts)
                 {
-                    hashInput += part;
-                    hashInput += ",";
+                    bld.Append(part);
+                    bld.Append(',');
                 }
+                string hashInput = bld.ToString();
 
                 var input = sha.ComputeHash(Encoding.Unicode.GetBytes(hashInput));
                 hash = WebEncoders.Base64UrlEncode(input);
