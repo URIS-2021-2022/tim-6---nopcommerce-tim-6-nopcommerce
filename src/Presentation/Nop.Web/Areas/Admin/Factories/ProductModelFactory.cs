@@ -955,7 +955,7 @@ namespace Nop.Web.Areas.Admin.Factories
                 productTagsSb.Append(JavaScriptEncoder.Default.Encode(tag.Name));
                 productTagsSb.Append("'");
                 if (i != productTags.Count - 1)
-                    productTagsSb.Append(",");
+                    productTagsSb.Append(',');
             }
             productTagsSb.Append(']');
 
