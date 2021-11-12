@@ -957,7 +957,7 @@ namespace Nop.Web.Areas.Admin.Factories
                 if (i != productTags.Count - 1)
                     productTagsSb.Append(",");
             }
-            productTagsSb.Append("]");
+            productTagsSb.Append(']');
 
             model.InitialProductTags = productTagsSb.ToString();
 
