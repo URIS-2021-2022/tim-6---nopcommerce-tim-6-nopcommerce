@@ -29,7 +29,6 @@ namespace Nop.Services.Themes
         public ThemeProvider(INopFileProvider fileProvider)
         {
             _fileProvider = fileProvider;
-            Initialize();
         }
 
         #endregion
