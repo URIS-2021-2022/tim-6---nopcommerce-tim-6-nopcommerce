@@ -88,7 +88,7 @@ namespace Nop.Web.Controllers
             return model;
         }
 
-        private InstallModel PrepareAvailableDataProviders(InstallModel model)
+        private void PrepareAvailableDataProviders(InstallModel model)
         {
             model.AvailableDataProviders.AddRange(
                 _locService.GetAvailableProviderTypes()
@@ -99,7 +99,6 @@ namespace Nop.Web.Controllers
                     Text = pt.Value
                 }));
 
-            return model;
         }
 
         #endregion

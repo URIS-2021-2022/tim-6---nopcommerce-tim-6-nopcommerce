@@ -486,7 +486,6 @@ namespace Nop.Web.Controllers
                     case CustomerLoginResults.LockedOut:
                         ModelState.AddModelError("", await _localizationService.GetResourceAsync("Account.Login.WrongCredentials.LockedOut"));
                         break;
-                    case CustomerLoginResults.WrongPassword:
                     default:
                         ModelState.AddModelError("", await _localizationService.GetResourceAsync("Account.Login.WrongCredentials"));
                         break;

@@ -104,10 +104,6 @@ namespace Nop.Core.Infrastructure
             var fileInfo = new FileInfo(path);
             CreateDirectory(fileInfo.DirectoryName);
 
-            //we use 'using' to close the file after it's created
-            using (File.Create(path))
-            {
-            }
         }
 
         /// <summary>
