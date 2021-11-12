@@ -2,7 +2,7 @@
 
 Admin.Navigation = (function () {
     var buildMap = function () {
-        var map = {};
+        
 
         var linkElements = $("a.nav-link");
 
