@@ -346,7 +346,7 @@ namespace Nop.Plugin.Misc.Sendinblue
         /// <summary>
         /// Generic attribute name to hide transactional block on the plugin configuration page
         /// </summary>
-        public static string HideTransactionalBlock = "SendinbluePage.HideTransactionalBlock";
+        public static const string HideTransactionalBlock = "SendinbluePage.HideTransactionalBlock";
 
         /// <summary>
         /// Generic attribute name to hide SMS block on the plugin configuration page
@@ -356,6 +356,6 @@ namespace Nop.Plugin.Misc.Sendinblue
         /// <summary>
         /// Generic attribute name to hide marketing automation block on the plugin configuration page
         /// </summary>
-        public static string HideMarketingAutomationBlock = "SendinbluePage.HideMarketingAutomationBlock";
+        public static readonly string HideMarketingAutomationBlock = "SendinbluePage.HideMarketingAutomationBlock";
     }
 }

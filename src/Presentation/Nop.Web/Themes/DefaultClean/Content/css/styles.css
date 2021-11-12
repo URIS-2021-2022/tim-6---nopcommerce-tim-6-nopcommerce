@@ -6280,7 +6280,6 @@ label, label + * {
   margin: 0 0 -1px;
   /*override jQuery UI styles, do not delete doubled properties*/
   float: none !important;
-  margin: 0 0 -1px !important;
   border: none !important;
   border-radius: 0;
   background: none !important;

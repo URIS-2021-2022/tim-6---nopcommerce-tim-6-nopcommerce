@@ -271,8 +271,11 @@ var validate = function( code, message, check, attributes ) {
 
 
 
-var alwaysArray = function( stringOrArray ) {
-	return Array.isArray( stringOrArray ) ? stringOrArray : stringOrArray ? [ stringOrArray ] : [];
+  var alwaysArray = function (stringOrArray) {
+    if (Array.isArray(stringOrArray)) {
+      return stringOrArray;
+    }
+	return stringOrArray ? [ stringOrArray ] : [];
 };
 
 

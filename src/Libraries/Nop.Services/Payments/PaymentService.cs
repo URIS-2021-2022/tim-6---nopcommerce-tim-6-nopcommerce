@@ -361,12 +361,13 @@ namespace Nop.Services.Payments
                 return creditCardNumber;
 
             var last4 = creditCardNumber[(creditCardNumber.Length - 4)..creditCardNumber.Length];
-            var maskedChars = string.Empty;
+            StringBuilder bld = new StringBuilder();
             for (var i = 0; i < creditCardNumber.Length - 4; i++)
             {
-                maskedChars += "*";
+                bld.Append("*");
             }
 
+            var maskedChars = bld.ToString();
             return maskedChars + last4;
         }
 

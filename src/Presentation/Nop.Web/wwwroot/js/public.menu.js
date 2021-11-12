@@ -108,7 +108,7 @@
     },
 
     categoryList: function (data, isTopMenu) {
-        listItems = [];
+        const listItems = [];
 
         let self = this;
 

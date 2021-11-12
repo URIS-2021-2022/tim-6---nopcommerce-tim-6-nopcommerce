@@ -111,7 +111,7 @@ namespace Nop.Core.ComponentModel
                 //result += $"{Convert.ToString(keyValue.Key, CultureInfo.InvariantCulture)}, {Convert.ToString(keyValue.Value, CultureInfo.InvariantCulture)}";
                 //don't add ; after the last element
                 if (counter != dictionary.Count - 1)
-                    bld.Append(";");
+                    bld.Append(';');
                   //  result += ";";
                 counter++;
             }

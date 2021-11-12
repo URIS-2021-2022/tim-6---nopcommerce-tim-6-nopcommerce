@@ -655,7 +655,6 @@
         },
         afterChange: function () { },
         slideshowEnd: function () { },
-        lastSlide: function () { },
       afterLoad: function () { }
       //This is intentional
     };

@@ -349,7 +349,7 @@ namespace Nop.Services.ExportImport
         /// </returns>
         protected virtual async Task<object> GetProductTagsAsync(Product product)
         {
-            string productTagNames = null;
+            StringBuilder bld = new StringBuilder();
 
             var productTags = await _productTagService.GetAllProductTagsByProductIdAsync(product.Id);
 
@@ -358,13 +358,14 @@ namespace Nop.Services.ExportImport
 
             foreach (var productTag in productTags)
             {
-                productTagNames += _catalogSettings.ExportImportRelatedEntitiesByName
+                bld.Append( _catalogSettings.ExportImportRelatedEntitiesByName
                     ? productTag.Name
-                    : productTag.Id.ToString();
+                    : productTag.Id.ToString());
 
-                productTagNames += ";";
+                bld.Append(";");
             }
 
+            string productTagNames = bld.ToString();
             return productTagNames;
         }
 
@@ -396,6 +397,7 @@ namespace Nop.Services.ExportImport
             }
             catch (ArgumentNullException)
             {
+                Console.WriteLine("Exception");
             }
 
             return !productAdvancedMode && !func(_productEditorSettings);

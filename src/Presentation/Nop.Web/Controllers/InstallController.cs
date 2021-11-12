@@ -148,7 +148,6 @@ namespace Nop.Web.Controllers
             //and the configured application pool identity on IIS 7.5) that is used if the application is not impersonating.
             //If the application is impersonating via <identity impersonate="true"/>, 
             //the identity will be the anonymous user (typically IUSR_MACHINENAME) or the authenticated request user.
-            var webHelper = EngineContext.Current.Resolve<IWebHelper>();
             //validate permissions
             var dirsToCheck = FilePermissionHelper.GetDirectoriesWrite();
             foreach (var dir in dirsToCheck)
