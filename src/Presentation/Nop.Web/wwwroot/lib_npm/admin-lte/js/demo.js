@@ -351,7 +351,7 @@
     var sidebar_class = 'sidebar-light-' + color.replace('bg-', '')
     var $sidebar = $('.main-sidebar')
     sidebar_skins.forEach(function (skin) {
-      $sidebar.removeClass(skin)
+     return $sidebar.removeClass(skin)
     }) 
 
     $sidebar.addClass(sidebar_class)
