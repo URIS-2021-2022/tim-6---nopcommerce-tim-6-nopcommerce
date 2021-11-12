@@ -236,7 +236,7 @@ namespace Nop.Core.Infrastructure
                 foreach (var e in ex.LoaderExceptions)
                     msg += e.Message + Environment.NewLine;
 
-                bld.Append(msg);
+             //   bld.Append(msg);
                 var fail = new Exception(msg, ex);
                 Debug.WriteLine(fail.Message, fail);
 
