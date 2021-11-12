@@ -822,7 +822,7 @@ var dateParse = function( value, tokens, properties ) {
 	}
 
 	valid = tokens.every(function( token ) {
-		var century, chr, value, length;
+		var century, chr, length;
 
 		if ( token.type === "literal" ) {
 

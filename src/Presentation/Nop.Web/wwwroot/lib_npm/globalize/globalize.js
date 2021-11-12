@@ -41,9 +41,11 @@
  * fast as `"" + number` in case variable is a number.
  * Ref: http://jsperf.com/my-stringify
  */
-var toString = function( variable ) {
-	return typeof variable === "string" ? variable : ( typeof variable === "number" ? "" +
-		variable : JSON.stringify( variable ) );
+  var toString = function (variable) {
+    if (typeof variable === "string") {
+      return variable;
+    }
+	  return typeof  typeof variable === "number" ? "" + variable : JSON.stringify( variable ) ;
 };
 
 
