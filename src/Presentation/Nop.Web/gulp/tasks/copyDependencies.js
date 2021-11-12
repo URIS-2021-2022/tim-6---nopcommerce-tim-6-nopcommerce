@@ -14,7 +14,7 @@ function copyDependencies(cb) {
     }))
     .pipe(gulp.dest(targetPath))
   cb();
-};
+}
 
 function jquery_DevTools(cb){
   //jquery-migrate
