@@ -54,38 +54,39 @@ else
         }
         liCssClass += "menu-open";
     }
+    <ol>
+        <li @(!String.IsNullOrEmpty(liCssClass) ? Html.Raw("class=\"" + liCssClass + "\"") : null)>
 
-    <li @(!String.IsNullOrEmpty(liCssClass) ? Html.Raw("class=\"" + liCssClass + "\"") : null)>
-
-        <a href="#" @(isActive ? Html.Raw("class=\"nav-link active\"") : Html.Raw("class=\"nav-link\""))>
-            @if (!string.IsNullOrEmpty(Model.IconClass))
+            <a href="#" @(isActive ? Html.Raw("class=\"nav-link active\"") : Html.Raw("class=\"nav-link\""))>
+                @if (!string.IsNullOrEmpty(Model.IconClass))
+                {
+                    <text>
+                        <i class="nav-icon @Url.Content(Model.IconClass)"></i>
+                    </text>
+                }
+                <p>
+                    @Model.Title
+                    @if (supportRtl)
+                    {
+                        <i class="right fas fa-angle-right"></i>
+                    }
+                    else
+                    {
+                        <i class="right fas fa-angle-left "></i>
+                    }
+                </p>
+            </a>
+            @if (hasChildNodes)
             {
-                <text>
-                    <i class="nav-icon @Url.Content(Model.IconClass)"></i>
-                </text>
+
+                <ul class="nav nav-treeview">
+                    @foreach (var childItem in childNodes)
+                    {
+                        @await Html.PartialAsync("_MenuItem", childItem)
+                    }
+                </ul>
+
             }
-            <p>
-                @Model.Title
-                @if (supportRtl)
-                {
-                    <i class="right fas fa-angle-right"></i>
-                }
-                else
-                {
-                    <i class="right fas fa-angle-left "></i>
-                }
-            </p>
-        </a>
-        @if (hasChildNodes)
-        {
-
-            <ul class="nav nav-treeview">
-                @foreach (var childItem in childNodes)
-                {
-                    @await Html.PartialAsync("_MenuItem", childItem)
-                }
-            </ul>
-
-        }
-    </li>
+        </li>
+    </ol>
 }

@@ -8644,12 +8644,6 @@ pre {
     vertical-align: middle;
   }
 
-  .forum-edit-page textarea,
-  .private-message-send-page textarea {
-    width: 600px;
-    height: 250px;
-  }
-
   .private-message-send-page .bb-code-editor-wrapper {
     display: inline-block;
     width: 400px;

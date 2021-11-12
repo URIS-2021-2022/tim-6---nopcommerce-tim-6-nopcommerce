@@ -171,7 +171,6 @@ namespace Nop.Web.Framework.UI
                                 result = string.Join(_seoSettings.PageTitleSeparator, _seoSettings.DefaultTitle, specificTitle);
                             }
                             break;
-                        case PageTitleSeoAdjustment.StorenameAfterPagename:
                         default:
                             {
                                 result = string.Join(_seoSettings.PageTitleSeparator, specificTitle, _seoSettings.DefaultTitle);
