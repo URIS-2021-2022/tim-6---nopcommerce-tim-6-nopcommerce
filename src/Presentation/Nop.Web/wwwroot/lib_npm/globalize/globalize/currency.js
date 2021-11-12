@@ -192,12 +192,13 @@ var currencySymbolProperties = function( currency, cldr, options ) {
 			symbolEntries.unshift( "symbol-alt-narrow" );
 		}
 
-		symbolEntries.some(function( symbolEntry ) {
-			return symbol = cldr.main([
-				"numbers/currencies",
-				currency,
-				symbolEntry
-			]);
+    symbolEntries.some(function (symbolEntry) {
+      symbol = cldr.main([
+        "numbers/currencies",
+        currency,
+        symbolEntry
+      ]);
+      return symbol;
 		});
 	}
 
