@@ -80,7 +80,7 @@ RoxyUtils.GetFilename = function(path){
   return ret;
 };
 RoxyUtils.MakePath = function(){
-  ret = '';
+  let ret = '';
   if(arguments && arguments.length > 0){
     for(var i = 0; i < arguments.length; i++){
       ret += ($.isArray(arguments[i])?arguments[i].join('/'):arguments[i]);
