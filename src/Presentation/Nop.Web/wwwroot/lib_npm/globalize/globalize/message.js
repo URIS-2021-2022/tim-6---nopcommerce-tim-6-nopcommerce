@@ -1391,10 +1391,10 @@ MessageFormat._parse = (function() {
 
     peg$result = peg$startRuleFunction();
 
-    if (peg$result !== peg$FAILED && peg$currPos === input.length) {
+    if (peg$result != peg$FAILED && peg$currPos === input.length) {
       return peg$result;
     } else {
-      if (peg$result !== peg$FAILED && peg$currPos < input.length) {
+      if (peg$result != peg$FAILED && peg$currPos < input.length) {
         peg$fail({ type: "end", description: "end of input" });
       }
 
