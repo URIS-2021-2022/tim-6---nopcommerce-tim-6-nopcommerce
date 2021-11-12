@@ -815,7 +815,7 @@ namespace Nop.Web.Framework.UI
         /// <summary>
         /// JS file meta data
         /// </summary>
-        private class ScriptReferenceMeta : IEquatable<ScriptReferenceMeta>
+        private sealed class ScriptReferenceMeta : IEquatable<ScriptReferenceMeta>
         {
             /// <summary>
             /// A value indicating whether to exclude the script from bundling
@@ -861,7 +861,7 @@ namespace Nop.Web.Framework.UI
         /// <summary>
         /// CSS file meta data
         /// </summary>
-        private class CssReferenceMeta : IEquatable<CssReferenceMeta>
+        private sealed class CssReferenceMeta : IEquatable<CssReferenceMeta>
         {
             public bool ExcludeFromBundle { get; set; }
 
