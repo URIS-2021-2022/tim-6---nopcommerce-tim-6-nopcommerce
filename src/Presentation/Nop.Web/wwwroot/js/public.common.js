@@ -139,7 +139,7 @@ function displayBarNotification(message, messagetype, timeout) {
     close.classList.add('close');
     close.setAttribute('title', document.getElementById('bar-notification').dataset.close);
 
-    for (let value of messages) {
+    for (let i of messages) {
         var content = document.createElement('p');
         content.classList.add('content');
         content.innerHTML = messages[i];
