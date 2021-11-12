@@ -2008,7 +2008,7 @@ function tmplFn(markup, tmpl, isLinkExpr, convertBack, hasElse) {
 		loc = 0,
 		stack = [],
 		content = astTop,
-		current = [,,astTop];
+		current = [astTop];
 
 	if (allowCode && tmpl._is) {
 		tmpl.allowCode = allowCode;
