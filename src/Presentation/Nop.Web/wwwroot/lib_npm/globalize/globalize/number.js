@@ -231,7 +231,7 @@ var numberNumberingSystemDigitsMap = function( cldr ) {
  * 11: suffix
  * 12: -
  */
-var numberPatternRe = ( /^(('([^']|'')*'|[^*#@0,.E])*)(\*.)?((([#,]*[0,]*0+)(\.0*[0-9]*#*)?)|([#,]*@+#*))(E\+?0+)?(('[^']+'|''|[^*#@0,.E])*)$/ );
+  var numberPatternRe = ( /^(('([^']|'')*'|[^*#@0,.E])*)(\*.)?((([#,]*[0,]*0+)(\.0*\d*#*)?)|([#,]*@+#*))(E\+?0+)?(('[^']+'|''|[^*#@0,.E])*)$/ );
 
 
 
@@ -280,7 +280,7 @@ var numberPatternProperties = function( pattern ) {
 		if ( fractionPattern ) {
 
 			// Minimum fraction digits, and rounding.
-			fractionPattern.replace( /[0-9]+/, function( match ) {
+      fractionPattern.replace( /\d+/, function( match ) {
 				minimumFractionDigits = match;
 			});
 			if ( minimumFractionDigits ) {
