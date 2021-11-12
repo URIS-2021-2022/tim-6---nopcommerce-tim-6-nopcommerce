@@ -13,11 +13,11 @@ namespace Nop.Plugin.Widgets.GoogleAnalytics.Api
         private readonly string _orderId;       //(utmtid)
         private readonly string _utmtci;        //Billing city
         private string _utmtco;        //Billing country
-        private string _utmtrg;        //Billing region
+        private readonly string _utmtrg;        //Billing region
         private readonly string _utmtst;        //Store name / affiliation
-        private string _utmtsp;        //Shipping costs
-        private string _utmtto;        //Order total
-        private string _utmttx;        //Tax costs
+        private readonly string _utmtsp;        //Shipping costs
+        private readonly string _utmtto;        //Order total
+        private readonly string _utmttx;        //Tax costs
 
         /// <summary>
         /// Create a new E-commerce Transaction
