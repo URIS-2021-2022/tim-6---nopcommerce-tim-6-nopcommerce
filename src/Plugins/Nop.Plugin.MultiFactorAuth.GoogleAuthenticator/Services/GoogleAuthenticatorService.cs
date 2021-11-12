@@ -20,7 +20,7 @@ namespace Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.Services
         private readonly IStaticCacheManager _staticCacheManager;
         private readonly IWorkContext _workContext;
         private readonly GoogleAuthenticatorSettings _googleAuthenticatorSettings;
-        private TwoFactorAuthenticator _twoFactorAuthenticator;
+        
         
 
         #endregion
@@ -44,9 +44,11 @@ namespace Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.Services
 
         private TwoFactorAuthenticator TwoFactorAuthenticator
         {
+
             get
             {
-                _twoFactorAuthenticator = new TwoFactorAuthenticator();
+                TwoFactorAuthenticator _twoFactorAuthenticator;
+                 _twoFactorAuthenticator = new TwoFactorAuthenticator();
                 return _twoFactorAuthenticator;
             }
         }
