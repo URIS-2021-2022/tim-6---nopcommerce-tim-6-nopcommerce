@@ -854,7 +854,7 @@ namespace Nop.Web.Factories
                     categoryModel.SubCategories.AddRange(subCategories);
                 }
 
-                categoryModel.HaveSubCategories = categoryModel.SubCategories.Count > 0 &
+                categoryModel.HaveSubCategories = categoryModel.SubCategories.Count > 0 &&
                     categoryModel.SubCategories.Any(x => x.IncludeInTopMenu);
 
                 result.Add(categoryModel);
