@@ -78,15 +78,15 @@ export default moment.defineLocale('gom-deva', {
         switch (period) {
             // the ordinal 'वेर' only applies to day of the month
             case 'D':
-                return number + 'वेर';
-            default:
+              return number + 'वेर';         
             case 'M':
             case 'Q':
             case 'DDD':
             case 'd':
             case 'w':
             case 'W':
-                return number;
+              return number;
+            default:
         }
     },
     week: {
