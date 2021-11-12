@@ -348,7 +348,7 @@ MessageFormat._parse = (function() {
     function peg$parsestart() {
       var s0;
 
-      s0 = peg$parsemessageFormatPattern();
+      s0 = peg$parsemessageFormatPattern().toString();
 
       return s0;
     }
