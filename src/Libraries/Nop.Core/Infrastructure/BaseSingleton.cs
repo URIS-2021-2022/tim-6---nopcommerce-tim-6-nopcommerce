@@ -6,7 +6,7 @@ namespace Nop.Core.Infrastructure
     /// <summary>
     /// Provides access to all "singletons" stored by <see cref="Singleton{T}"/>.
     /// </summary>
-    public protected class BaseSingleton
+    public class BaseSingleton
     {
         static BaseSingleton()
         {
