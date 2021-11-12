@@ -91,7 +91,7 @@
         slider.append($('<div class="nivo-caption"></div>'));
 
         // Process caption function
-        var processCaption = function (settings) {
+        var processCaption = function (settings2 ) {
             var nivoCaption = $('.nivo-caption', slider);
             if (vars.currentImage.attr('title') != '' && vars.currentImage.attr('title') != undefined) {
                 var title = vars.currentImage.attr('title');
@@ -100,13 +100,13 @@
                 if (nivoCaption.css('display') == 'block') {
                     setTimeout(function () {
                         nivoCaption.html(title);
-                    }, settings.animSpeed);
+                    }, settings2.animSpeed);
                 } else {
                     nivoCaption.html(title);
-                    nivoCaption.stop().fadeIn(settings.animSpeed);
+                    nivoCaption.stop().fadeIn(settings2.animSpeed);
                 }
             } else {
-                nivoCaption.stop().fadeOut(settings.animSpeed);
+                nivoCaption.stop().fadeOut(settings2.animSpeed);
             }
         }
 
