@@ -1809,7 +1809,7 @@ namespace Nop.Web.Areas.Admin.Controllers
                 case SpecificationAttributeType.Hyperlink:
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException(nameof(psa), $"Wrong attribute type.");
             }
 
             if (continueEditing)
