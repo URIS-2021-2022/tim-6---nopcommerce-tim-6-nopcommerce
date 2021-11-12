@@ -1621,7 +1621,7 @@ namespace Nop.Web.Areas.Admin.Controllers
                 return AccessDeniedView();
 
             if (pictureId == 0)
-                throw new ArgumentException(nameof(attribute), $"Picture id is 0.");
+                throw new ArgumentException();
 
             //try to get a product with the specified id
             var product = await _productService.GetProductByIdAsync(productId)
