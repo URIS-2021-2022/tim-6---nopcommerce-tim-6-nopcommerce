@@ -349,15 +349,10 @@
   $container.append(createSkinBlock(sidebar_colors, function () {
     var color         = $(this).data('color')
     var sidebar_class = 'sidebar-light-' + color.replace('bg-', '')
-<<<<<<< HEAD
     var $sidebar = $('.main-sidebar')
-    sidebar_skins.forEach(function return (skin) {
-=======
-    var $sidebar      = $('.main-sidebar')
-    sidebar_skins.map(function (skin) {
->>>>>>> parent of 4c99ea83 (Update demo.js)
+    sidebar_skins.forEach(function (skin) {
       $sidebar.removeClass(skin)
-    }) q
+    }) 
 
     $sidebar.addClass(sidebar_class)
   }))
