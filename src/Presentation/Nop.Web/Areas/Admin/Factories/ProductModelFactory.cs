@@ -1613,7 +1613,7 @@ namespace Nop.Web.Areas.Admin.Factories
                         case SpecificationAttributeType.Hyperlink:
                             break;
                         default:
-                            throw new ArgumentOutOfRangeException();
+                            throw new ArgumentOutOfRangeException(nameof(attribute), $"Wrong attribute type.");
                     }
                 });
 
