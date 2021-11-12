@@ -1809,7 +1809,7 @@ namespace Nop.Web.Areas.Admin.Controllers
                 case SpecificationAttributeType.Hyperlink:
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException(nameof(psa), $"Wrong attribute type.");
             }
 
             if (continueEditing)
@@ -3024,7 +3024,7 @@ namespace Nop.Web.Areas.Admin.Controllers
                 {
                     var attributeValues = await _productAttributeParser.ParseProductAttributeValuesAsync(combination.AttributesXml);
                     
-                    if (attributeValues.Where(attribute => attribute.Id == id).Any())
+                    if (attributeValues.Any(attribute => attribute.Id == id))
                     {
                         return Conflict(string.Format(await _localizationService.GetResourceAsync("Admin.Catalog.Products.ProductAttributes.Attributes.Values.AlreadyExistsInCombination"),
                             await _productAttributeFormatter.FormatAttributesAsync(product, combination.AttributesXml, await _workContext.GetCurrentCustomerAsync(), ", ")));
