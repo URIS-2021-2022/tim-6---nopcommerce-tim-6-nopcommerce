@@ -149,7 +149,7 @@ namespace Nop.Web.Factories
                            (await _topicTemplateService.GetAllTopicTemplatesAsync()).FirstOrDefault();
 
             if (template == null)
-                throw new Exception("No default template could be loaded");
+                throw new ArgumentNullException("No default template could be loaded");
 
             return template.ViewPath;
         }
