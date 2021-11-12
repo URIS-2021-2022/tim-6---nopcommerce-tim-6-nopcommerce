@@ -50,18 +50,6 @@ namespace Nop.Web.Framework.Mvc.Filters
 
             #endregion
 
-            #region Ctor
-
-            public CheckAffiliateFilter(IAffiliateService affiliateService,
-                ICustomerService customerService,
-                IWorkContext workContext)
-            {
-                _affiliateService = affiliateService;
-                _customerService = customerService;
-                _workContext = workContext;
-            }
-
-            #endregion
 
             #region Utilities
 
