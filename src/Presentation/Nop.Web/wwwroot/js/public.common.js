@@ -65,7 +65,7 @@ function displayPopupNotification(message, messagetype, modal) {
         modal: isModal,
         width: 350
     });
-}
+
 function displayJoinedPopupNotifications(notes) {
     if (Object.keys(notes).length === 0) return;
 
