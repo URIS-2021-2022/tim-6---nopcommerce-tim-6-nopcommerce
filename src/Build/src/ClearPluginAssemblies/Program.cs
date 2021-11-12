@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ClearPluginAssemblies
 {
-    public static class Program
+    public class Program
     {
         protected const string FILES_TO_DELETE = "dotnet-bundle.exe;Nop.Web.pdb;Nop.Web.exe;Nop.Web.exe.config";
 
