@@ -382,8 +382,8 @@ var ShippingMethod = {
             return false;
         }
 
-        for (var i = 0; i < methods.length; i++) {
-            if (methods[i].checked) {
+      for (let value of methods) {
+        if (value.checked) {
                 return true;
             }
         }
@@ -457,10 +457,10 @@ var PaymentMethod = {
             return false;
         }
 
-        for (var i = 0; i < methods.length; i++) {
-            if (methods[i].checked) {
-                return true;
-            }
+      for (let value of methods) {
+          if (methods[i].checked) {
+            return true;
+          }
         }
         alert(this.localized_data.SpecifyMethodError);
         return false;

@@ -8,9 +8,9 @@ function OpenWindow(query, w, h, scroll) {
     var l = (screen.width - w) / 2;
     var t = (screen.height - h) / 2;
 
-    winprops = 'resizable=0, height=' + h + ',width=' + w + ',top=' + t + ',left=' + l + 'w';
+    var winprops = 'resizable=0, height=' + h + ',width=' + w + ',top=' + t + ',left=' + l + 'w';
     if (scroll) winprops += ',scrollbars=1';
-    var f = window.open(query, "_blank", winprops);
+    
 }
 
 function setLocation(url) {
@@ -65,7 +65,7 @@ function displayPopupNotification(message, messagetype, modal) {
         modal: isModal,
         width: 350
     });
-}
+
 function displayJoinedPopupNotifications(notes) {
     if (Object.keys(notes).length === 0) return;
 
@@ -139,7 +139,7 @@ function displayBarNotification(message, messagetype, timeout) {
     close.classList.add('close');
     close.setAttribute('title', document.getElementById('bar-notification').dataset.close);
 
-    for (var i = 0; i < messages.length; i++) {
+    for (let i of messages) {
         var content = document.createElement('p');
         content.classList.add('content');
         content.innerHTML = messages[i];

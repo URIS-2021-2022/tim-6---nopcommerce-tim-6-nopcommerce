@@ -226,7 +226,7 @@ EventEmitter = (function () {
 	 * @return {Object} Current instance of EventEmitter for chaining.
 	 */
 	proto.defineEvents = function defineEvents(evts) {
-		for (var i = 0; i < evts.length; i += 1) {
+		for (let value of evts) {
 			this.defineEvent(evts[i]);
 		}
 		return this;

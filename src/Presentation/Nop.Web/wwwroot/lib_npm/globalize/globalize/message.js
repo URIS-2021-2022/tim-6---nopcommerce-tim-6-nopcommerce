@@ -165,7 +165,7 @@ MessageFormat._parse = (function() {
         peg$c59 = function(h1, h2, h3, h4) {
               return String.fromCharCode(parseInt("0x" + h1 + h2 + h3 + h4));
             },
-        peg$c60 = /^[0-9]/,
+        peg$c60 = /^\d/,
         peg$c61 = { type: "class", value: "[0-9]", description: "[0-9]" },
         peg$c62 = function(ds) {
             //the number might start with 0 but must not be interpreted as an octal number
@@ -348,7 +348,7 @@ MessageFormat._parse = (function() {
     function peg$parsestart() {
       var s0;
 
-      s0 = peg$parsemessageFormatPattern();
+      s0 = peg$parsemessageFormatPattern().toString();
 
       return s0;
     }
@@ -1425,7 +1425,7 @@ function propname(key, obj) {
     var jkey = JSON.stringify(key);
     return obj ? obj + '[' + jkey + ']' : jkey;
   }
-};
+}
 
 
 /** Create a new message formatter

@@ -379,7 +379,7 @@ columns: [
                         @if (!string.IsNullOrEmpty(picture.Src))
                         {
                             <text>
-                            return '<img src="@(picture.SrcPrefix)@(picture.Src)" @(widthAttr) />';
+                            return '<img src="@(picture.SrcPrefix)@(picture.Src)" @(widthAttr) alt="A rendered picture "/>';
                             </text>
                         }
                         else

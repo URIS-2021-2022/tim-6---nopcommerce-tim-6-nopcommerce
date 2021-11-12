@@ -91,7 +91,7 @@
         slider.append($('<div class="nivo-caption"></div>'));
 
         // Process caption function
-        var processCaption = function (settings) {
+        var processCaption = function (settings2 ) {
             var nivoCaption = $('.nivo-caption', slider);
             if (vars.currentImage.attr('title') != '' && vars.currentImage.attr('title') != undefined) {
                 var title = vars.currentImage.attr('title');
@@ -100,13 +100,13 @@
                 if (nivoCaption.css('display') == 'block') {
                     setTimeout(function () {
                         nivoCaption.html(title);
-                    }, settings.animSpeed);
+                    }, settings2.animSpeed);
                 } else {
                     nivoCaption.html(title);
-                    nivoCaption.stop().fadeIn(settings.animSpeed);
+                    nivoCaption.stop().fadeIn(settings2.animSpeed);
                 }
             } else {
-                nivoCaption.stop().fadeOut(settings.animSpeed);
+                nivoCaption.stop().fadeOut(settings2.animSpeed);
             }
         }
 
@@ -208,7 +208,7 @@
         });
 
         // Add slices for slice animations
-        var createSlices = function (sliceSettings, vars) {
+        var createSlices = function (slider, sliceSettings, vars) {
             if ($(vars.currentImage).parent().is('a')) $(vars.currentImage).parent().css('display', 'block');
             $('img[src="' + vars.currentImage.attr('src') + '"]', slider).not('.nivo-main-image,.nivo-control img').width(slider.width()).css('visibility', 'hidden').show();
             var sliceHeight = ($('img[src="' + vars.currentImage.attr('src') + '"]', slider).not('.nivo-main-image,.nivo-control img').parent().is('a')) ? $('img[src="' + vars.currentImage.attr('src') + '"]', slider).not('.nivo-main-image,.nivo-control img').parent().height() : $('img[src="' + vars.currentImage.attr('src') + '"]', slider).not('.nivo-main-image,.nivo-control img').height();
@@ -656,8 +656,8 @@
         afterChange: function () { },
         slideshowEnd: function () { },
         lastSlide: function () { },
-      afterLoad: function () {
-// This is intentional       }
+      afterLoad: function () { }
+      //This is intentional
     };
 
     $.fn._reverse = [].reverse;

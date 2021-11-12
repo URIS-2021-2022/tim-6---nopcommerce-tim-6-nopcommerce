@@ -290,7 +290,6 @@ namespace Nop.Web.Factories
                     await PrepareGroupedProductOverviewPriceModelAsync(product, priceModel);
 
                     break;
-                case ProductType.SimpleProduct:
                 default:
                     //simple product
                     await PrepareSimpleProductOverviewPriceModelAsync(product, priceModel);

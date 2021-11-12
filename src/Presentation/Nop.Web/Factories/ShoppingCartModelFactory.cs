@@ -342,10 +342,13 @@ namespace Nop.Web.Factories
                         {
                             var downloadGuidStr = _checkoutAttributeParser
                                 .ParseValues(selectedCheckoutAttributes, attribute.Id).FirstOrDefault();
-                            Guid.TryParse(downloadGuidStr, out var downloadGuid);
-                            var download = await _downloadService.GetDownloadByGuidAsync(downloadGuid);
-                            if (download != null)
-                                attributeModel.DefaultValue = download.DownloadGuid.ToString();
+                            if(Guid.TryParse(downloadGuidStr, out var downloadGuid) == true)
+                                {
+                                    var download = await _downloadService.GetDownloadByGuidAsync(downloadGuid);
+                                    if (download != null)
+                                        attributeModel.DefaultValue = download.DownloadGuid.ToString();
+                                }
+                             
                         }
                     }
 
@@ -1265,12 +1268,12 @@ namespace Nop.Web.Factories
         /// </summary>
         /// <param name="cart">List of the shopping cart item</param>
         /// <param name="request">Request to get shipping options</param>
-        /// <param name="cacheShippingOptions">Indicates whether to cache offered shipping options</param>
+        /// <param name="cacheOfferedShippingOptions">Indicates whether to cache offered shipping options</param>
         /// <returns>
         /// A task that represents the asynchronous operation
         /// The task result contains the estimate shipping result model
         /// </returns>
-        public virtual async Task<EstimateShippingResultModel> PrepareEstimateShippingResultModelAsync(IList<ShoppingCartItem> cart, EstimateShippingModel request, bool cacheShippingOptions)
+        public virtual async Task<EstimateShippingResultModel> PrepareEstimateShippingResultModelAsync(IList<ShoppingCartItem> cart, EstimateShippingModel request, bool cacheOfferedShippingOptions)
         {
             if (request is null)
                 throw new ArgumentNullException(nameof(request));
@@ -1343,7 +1346,7 @@ namespace Nop.Web.Factories
                 }
 
                 ShippingOption selectedShippingOption = null;
-                if (cacheShippingOptions)
+                if (cacheOfferedShippingOptions)
                 {
                     //performance optimization. cache returned shipping options.
                     //we'll use them later (after a customer has selected an option).

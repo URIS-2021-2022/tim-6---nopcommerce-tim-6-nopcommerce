@@ -219,7 +219,7 @@
     var $main_header = $('.main-header')
     $main_header.removeClass('navbar-dark').removeClass('navbar-light')
     navbar_all_colors.map(function (color) {
-      $main_header.removeClass(color)
+      return $main_header.removeClass(color);
     })
 
     if (navbar_dark_skins.indexOf(color) > -1) {
@@ -348,10 +348,11 @@
   $container.append(createSkinBlock(sidebar_colors, function () {
     var color         = $(this).data('color')
     var sidebar_class = 'sidebar-light-' + color.replace('bg-', '')
+
     var $sidebar = $('.main-sidebar')
-    sidebar_skins.forEach(function return (skin) {
-      $sidebar.removeClass(skin)
-    }) q
+    sidebar_skins.forEach(function (skin) {
+      return $sidebar.removeClass(skin)
+    })
 
     $sidebar.addClass(sidebar_class)
   }))

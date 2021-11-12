@@ -1584,7 +1584,8 @@ var dateTokenizer = function( value, numberParser, properties ) {
 
 				// Unicode equivalent to /\d\d/
 				numeric = true;
-				return tokenRe = new RegExp( "^(" + digitsRe.source + "){2}" );
+              tokenRe = new RegExp("^(" + digitsRe.source + "){2}");
+              return tokenRe
 			}
 		}
 
@@ -2017,7 +2018,7 @@ var dateTokenizerProperties = function( pattern, cldr, timeZone ) {
 			.replace( /HH|mm|ss/g, "((" + digitsReSource + "){2})" )
 
 			// Unicode equivalent to (\\d\\d?)
-			.replace( /H|m/g, "((" + digitsReSource + "){1,2})" );
+			.replace( /[Hm]/g, "((" + digitsReSource + "){1,2})" );
 
 		if ( timeSeparator ) {
 			re = re.replace( /:/g, timeSeparator );

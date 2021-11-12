@@ -17,7 +17,7 @@
     {
         <form asp-route="PrivateMessagesInbox" method="post">
             <div class="table-wrapper">
-                <table class="data-table" id="pm-inbox-table">
+                <table class="data-table" id="pm-inbox-table" summary="Private messages inbox table">
                     <colgroup>
                         <col width="1" />
                         <col />
@@ -26,16 +26,16 @@
                     </colgroup>
                     <thead>
                     <tr>
-                        <th class="select">
+                        <th scope="col" class="select">
                             <input type="checkbox" id="select-all-inbox" />
                         </th>
-                        <th class="from">
+                        <th scope="col" class="from">
                             @T("PrivateMessages.Inbox.FromColumn")
                         </th>
-                        <th class="subject">
+                        <th scope="col" class="subject">
                             @T("PrivateMessages.Inbox.SubjectColumn")
                         </th>
-                        <th class="date">
+                        <th scope="col" class="date">
                             @T("PrivateMessages.Inbox.DateColumn")
                         </th>
                     </tr>

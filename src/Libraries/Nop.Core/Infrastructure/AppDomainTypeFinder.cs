@@ -227,12 +227,16 @@ namespace Nop.Core.Infrastructure
                     }
                 }
             }
+
+      
+
             catch (ReflectionTypeLoadException ex)
             {
                 var msg = string.Empty;
                 foreach (var e in ex.LoaderExceptions)
                     msg += e.Message + Environment.NewLine;
 
+             //   bld.Append(msg);
                 var fail = new Exception(msg, ex);
                 Debug.WriteLine(fail.Message, fail);
 

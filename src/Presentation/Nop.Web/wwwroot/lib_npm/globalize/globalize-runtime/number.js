@@ -374,10 +374,10 @@ var removeLiteralQuotes = function( string ) {
 var numberFormat = function( number, properties, pluralGenerator ) {
 	var aux, compactMap, infinitySymbol, maximumFractionDigits, maximumSignificantDigits,
 		minimumFractionDigits, minimumIntegerDigits, minimumSignificantDigits, nanSymbol,
-		nuDigitsMap, padding, prefix, primaryGroupingSize, pattern, round, roundIncrement,
+		nuDigitsMap, prefix, primaryGroupingSize, pattern, round, roundIncrement,
 		secondaryGroupingSize, stringToParts, suffix, symbolMap;
 
-	padding = properties[ 1 ];
+	
 	minimumIntegerDigits = properties[ 2 ];
 	minimumFractionDigits = properties[ 3 ];
 	maximumFractionDigits = properties[ 4 ];

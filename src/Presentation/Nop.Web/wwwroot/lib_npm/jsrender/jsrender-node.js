@@ -14,7 +14,7 @@
 (function(global) {
 "use strict";
 if (typeof exports !== 'object' ) {
-  throw "Outside Node.js use //jsviews.com/download/jsrender.js"; {exports}
+  throw Error("Outside Node.js use //jsviews.com/download/jsrender.js"); {exports}
 }
 
 //========================== Top-level vars ==========================
@@ -2008,7 +2008,7 @@ function tmplFn(markup, tmpl, isLinkExpr, convertBack, hasElse) {
 		loc = 0,
 		stack = [],
 		content = astTop,
-		current = [,,astTop];
+		current = [astTop];
 
 	if (allowCode && tmpl._is) {
 		tmpl.allowCode = allowCode;

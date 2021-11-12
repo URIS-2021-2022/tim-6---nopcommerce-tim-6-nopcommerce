@@ -5,9 +5,6 @@ namespace Nop.Web.Areas.Admin.Validators
 {
     public class ValidatorUtilities
     {
-        protected ValidatorUtilities()
-        {
-        }
 
         public static bool PageSizeOptionsValidator(string value)
         {

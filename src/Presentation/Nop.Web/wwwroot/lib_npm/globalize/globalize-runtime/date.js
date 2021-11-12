@@ -822,7 +822,7 @@ var dateParse = function( value, tokens, properties ) {
 	}
 
 	valid = tokens.every(function( token ) {
-		var century, chr, value, length;
+		var century, chr, length;
 
 		if ( token.type === "literal" ) {
 
@@ -1189,7 +1189,8 @@ var dateTokenizer = function( value, numberParser, properties ) {
 
 				// Unicode equivalent to /\d\d?/
 				numeric = true;
-				return tokenRe = new RegExp( "^(" + digitsRe.source + "){1,2}" );
+        tokenRe = new RegExp("^(" + digitsRe.source + "){1,2}");
+        return tokenRe;
 			}
 		}
 
